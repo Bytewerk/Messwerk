@@ -15,11 +15,15 @@ TARGET = Messwerk
 CONFIG += sailfishapp
 QT += sensors
 
+QMAKE_CXXFLAGS += -std=c++0x
+QMAKE_LFLAGS += -std=c++0x
+
 SOURCES += src/Messwerk.cpp \
     src/accelerometer.cpp \
     src/gyroscope.cpp \
     src/magnetometer.cpp \
-    src/sensor.cpp
+    src/sensor.cpp \
+    src/plotwidget.cpp
 
 OTHER_FILES += qml/Messwerk.qml \
     qml/cover/CoverPage.qml \
@@ -36,7 +40,8 @@ OTHER_FILES += qml/Messwerk.qml \
     qml/pages/LightPage.qml \
     qml/pages/GyroPage.qml \
     qml/pages/AccelPage.qml \
-    qml/Constants.js
+    qml/Constants.js \
+    qml/pages/PlotTestPage.qml
 
 # to disable building translations every time, comment out the
 # following CONFIG line
@@ -47,5 +52,6 @@ HEADERS += \
     src/accelerometer.h \
     src/gyroscope.h \
     src/magnetometer.h \
-    src/sensor.h
+    src/sensor.h \
+    src/plotwidget.h
 

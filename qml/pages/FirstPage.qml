@@ -92,6 +92,11 @@ Page {
                 text: qsTr("Light")
                 onClicked: pageStack.push(Qt.resolvedUrl("LightPage.qml"))
             }
+            Button {
+                anchors.horizontalCenter: parent.horizontalCenter
+                text: qsTr("Plot Testing")
+                onClicked: pageStack.push(Qt.resolvedUrl("PlotTestPage.qml"))
+            }
         }
     }
 }

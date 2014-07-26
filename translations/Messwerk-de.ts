@@ -61,6 +61,10 @@
         <source>Gyroscope</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Plot Testing</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>GyroPage</name>
@@ -122,6 +126,13 @@
     </message>
     <message>
         <source>TODO</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>PlotTestPage</name>
+    <message>
+        <source>Plot Test Page</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

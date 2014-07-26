@@ -44,6 +44,8 @@
 #include "gyroscope.h"
 #include "magnetometer.h"
 
+#include "plotwidget.h"
+
 
 int main(int argc, char *argv[])
 {
@@ -51,6 +53,8 @@ int main(int argc, char *argv[])
 
     QGuiApplication *app = SailfishApp::application(argc, argv);
     QQuickView *view = SailfishApp::createView();
+
+    qmlRegisterType<PlotWidget>("MesswerkWidgets", 1, 0, "PlotWidget");
 
     QTimer refreshTimer;
 
