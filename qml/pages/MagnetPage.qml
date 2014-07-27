@@ -1,5 +1,6 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
+import MesswerkWidgets 1.0
 
 import "../Constants.js" as Constants
 
@@ -18,7 +19,27 @@ Page {
         return '<b>' + n.toFixed(0) + ' %</b>';
     }
 
-    Component.onCompleted: magnetometer.activate(Constants.PART_PAGE)
+    function updateXPlot() {
+        xplot.addValue(magnetometer.mx);
+        xplot.update();
+    }
+
+    function updateYPlot() {
+        yplot.addValue(magnetometer.my);
+        yplot.update();
+    }
+
+    function updateZPlot() {
+        zplot.addValue(magnetometer.mz);
+        zplot.update();
+    }
+
+    Component.onCompleted: {
+        magnetometer.activate(Constants.PART_PAGE);
+        magnetometer.mxChanged.connect(updateXPlot);
+        magnetometer.myChanged.connect(updateYPlot);
+        magnetometer.mzChanged.connect(updateZPlot);
+    }
     Component.onDestruction: magnetometer.deactivate(Constants.PART_PAGE)
 
     // To enable PullDownMenu, place our content in a SilicaFlickable
@@ -46,6 +67,13 @@ Page {
                 anchors.rightMargin: Theme.paddingLarge
                 text: 'X: ' + page.formatNumber(magnetometer.mx)
             }
+            PlotWidget {
+                id: xplot
+                width: parent.width
+                height: 150
+                plotColor: Theme.highlightColor
+                scaleColor: Theme.secondaryHighlightColor
+            }
             Label {
                 id: ylabel
                 font.pixelSize: Theme.fontSizeLarge
@@ -53,12 +81,26 @@ Page {
                 anchors.rightMargin: Theme.paddingLarge
                 text: 'Y: ' + page.formatNumber(magnetometer.my)
             }
+            PlotWidget {
+                id: yplot
+                width: parent.width
+                height: 150
+                plotColor: Theme.highlightColor
+                scaleColor: Theme.secondaryHighlightColor
+            }
             Label {
                 id: zlabel
                 font.pixelSize: Theme.fontSizeLarge
                 anchors.right: parent.right
                 anchors.rightMargin: Theme.paddingLarge
                 text: 'Z: ' + page.formatNumber(magnetometer.mz)
+            }
+            PlotWidget {
+                id: zplot
+                width: parent.width
+                height: 150
+                plotColor: Theme.highlightColor
+                scaleColor: Theme.secondaryHighlightColor
             }
             Label {
                 id: precisionlabel

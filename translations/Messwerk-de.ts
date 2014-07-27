@@ -91,6 +91,10 @@
         <source>Quality assurance: sqozz</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Art &amp; Design: sqozz, cfr34k</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>LightPage</name>

@@ -39,6 +39,7 @@
 #include <QQuickView>
 #include <QQmlContext>
 #include <QGuiApplication>
+#include <QTimer>
 
 #include "accelerometer.h"
 #include "gyroscope.h"

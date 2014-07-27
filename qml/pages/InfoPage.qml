@@ -43,6 +43,10 @@ Page {
                 anchors.horizontalCenter: parent.horizontalCenter
                 text: qsTr("Quality assurance: sqozz")
             }
+            Label {
+                anchors.horizontalCenter: parent.horizontalCenter
+                text: qsTr("Art & Design: sqozz, cfr34k")
+            }
         }
     }
 }

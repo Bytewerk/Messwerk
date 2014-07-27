@@ -1,5 +1,6 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
+import MesswerkWidgets 1.0
 
 import "../Constants.js" as Constants
 
@@ -21,7 +22,16 @@ Page {
         return '<b>' + n.toFixed(3) + ' ' + unit + '</b>';
     }
 
-    Component.onCompleted: accelerometer.activate(Constants.PART_PAGE)
+    function updateAbsPlot() {
+        absplot.addValue(accelerometer.abs);
+        absplot.update();
+    }
+
+    Component.onCompleted: {
+        accelerometer.activate(Constants.PART_PAGE);
+        accelerometer.absChanged.connect(updateAbsPlot);
+    }
+
     Component.onDestruction: accelerometer.deactivate(Constants.PART_PAGE)
 
     // To enable PullDownMenu, place our content in a SilicaFlickable
@@ -81,6 +91,13 @@ Page {
                 anchors.right: parent.right
                 anchors.rightMargin: Theme.paddingLarge
                 text: 'Absolute: ' + page.formatNumber(accelerometer.abs)
+            }
+            PlotWidget {
+                id: absplot
+                width: parent.width
+                height: 200
+                plotColor: Theme.highlightColor
+                scaleColor: Theme.secondaryHighlightColor
             }
             Label {
                 id: absnogravlabel

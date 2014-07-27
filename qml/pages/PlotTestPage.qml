@@ -35,8 +35,8 @@ Page {
             }
             PlotWidget {
                 id: plot
-                width: 500
-                height: 500
+                width: parent.width
+                height: 200
                 rotation: 0
                 plotColor: Theme.highlightColor
                 scaleColor: Theme.secondaryHighlightColor
