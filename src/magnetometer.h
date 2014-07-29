@@ -20,8 +20,6 @@ class Magnetometer : public Sensor
         qreal m_mz;
         qreal m_precision;
 
-        QMagnetometer *m_magnetometer;
-
     public:
         explicit Magnetometer(QObject *parent = NULL);
         ~Magnetometer();

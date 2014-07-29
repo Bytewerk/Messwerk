@@ -23,7 +23,8 @@ SOURCES += src/Messwerk.cpp \
     src/gyroscope.cpp \
     src/magnetometer.cpp \
     src/sensor.cpp \
-    src/plotwidget.cpp
+    src/plotwidget.cpp \
+    src/rotation.cpp
 
 OTHER_FILES += qml/Messwerk.qml \
     qml/cover/CoverPage.qml \
@@ -35,13 +36,13 @@ OTHER_FILES += qml/Messwerk.qml \
     Messwerk.desktop \
     qml/pages/InfoPage.qml \
     qml/pages/PositionPage.qml \
-    qml/pages/OrientationPage.qml \
     qml/pages/MagnetPage.qml \
     qml/pages/LightPage.qml \
     qml/pages/GyroPage.qml \
     qml/pages/AccelPage.qml \
     qml/Constants.js \
-    qml/pages/PlotTestPage.qml
+    qml/pages/PlotTestPage.qml \
+    qml/pages/RotationPage.qml
 
 # to disable building translations every time, comment out the
 # following CONFIG line
@@ -53,5 +54,6 @@ HEADERS += \
     src/gyroscope.h \
     src/magnetometer.h \
     src/sensor.h \
-    src/plotwidget.h
+    src/plotwidget.h \
+    src/rotation.h
 

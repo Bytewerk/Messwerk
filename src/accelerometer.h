@@ -20,8 +20,6 @@ class Accelerometer : public Sensor
         qreal m_az;
         qreal m_abs;
 
-		QAccelerometer *m_accelerometer;
-
 	public:
 		explicit Accelerometer(QObject *parent = NULL);
 		~Accelerometer();

@@ -44,6 +44,7 @@
 #include "accelerometer.h"
 #include "gyroscope.h"
 #include "magnetometer.h"
+#include "rotation.h"
 
 #include "plotwidget.h"
 
@@ -62,15 +63,18 @@ int main(int argc, char *argv[])
     Accelerometer accelerometer;
     Gyroscope gyroscope;
     Magnetometer magnetometer;
+    Rotation rotation;
 
     QObject::connect(&refreshTimer, SIGNAL(timeout()), &accelerometer, SLOT(refresh()));
     QObject::connect(&refreshTimer, SIGNAL(timeout()), &gyroscope, SLOT(refresh()));
     QObject::connect(&refreshTimer, SIGNAL(timeout()), &magnetometer, SLOT(refresh()));
+    QObject::connect(&refreshTimer, SIGNAL(timeout()), &rotation, SLOT(refresh()));
 
     QString qml = QString("qml/%1.qml").arg("Messwerk");
     view->rootContext()->setContextProperty("accelerometer", &accelerometer);
     view->rootContext()->setContextProperty("gyroscope", &gyroscope);
     view->rootContext()->setContextProperty("magnetometer", &magnetometer);
+    view->rootContext()->setContextProperty("rotationsensor", &rotation);
     view->setSource(SailfishApp::pathTo(qml));
     view->show();
 

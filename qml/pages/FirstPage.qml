@@ -69,8 +69,8 @@ Page {
             }
             Button {
                 anchors.horizontalCenter: parent.horizontalCenter
-                text: qsTr("Orientation")
-                onClicked: pageStack.push(Qt.resolvedUrl("OrientationPage.qml"))
+                text: qsTr("Rotation")
+                onClicked: pageStack.push(Qt.resolvedUrl("RotationPage.qml"))
             }
             Button {
                 anchors.horizontalCenter: parent.horizontalCenter

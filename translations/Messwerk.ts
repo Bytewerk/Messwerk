@@ -26,10 +26,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Orientation</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Accelerometer</source>
         <translation type="unfinished"></translation>
     </message>
@@ -50,7 +46,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Plot Testing</source>
+        <source>Rotation</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -107,28 +103,6 @@
     </message>
 </context>
 <context>
-    <name>OrientationPage</name>
-    <message>
-        <source>DummyItem</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Orientation</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>TODO</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>PlotTestPage</name>
-    <message>
-        <source>Plot Test Page</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
     <name>PositionPage</name>
     <message>
         <source>DummyItem</source>
@@ -140,6 +114,13 @@
     </message>
     <message>
         <source>TODO</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>RotationPage</name>
+    <message>
+        <source>Rotation</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

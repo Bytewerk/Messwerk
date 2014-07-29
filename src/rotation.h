@@ -1,11 +1,11 @@
-#ifndef GYROSCOPE_H
-#define GYROSCOPE_H
+#ifndef ROTATION_H
+#define ROTATION_H
 
-#include <QGyroscope>
+#include <QRotationSensor>
 
 #include "sensor.h"
 
-class Gyroscope : public Sensor
+class Rotation : public Sensor
 {
     Q_OBJECT
 
@@ -19,8 +19,8 @@ class Gyroscope : public Sensor
         qreal m_rz;
 
     public:
-        explicit Gyroscope(QObject *parent = NULL);
-        ~Gyroscope();
+        explicit Rotation(QObject *parent = NULL);
+        ~Rotation();
 
         qreal rx(void) const { return m_rx; }
         qreal ry(void) const { return m_ry; }
@@ -35,4 +35,4 @@ class Gyroscope : public Sensor
         void rzChanged(void);
 };
 
-#endif // GYROSCOPE_H
+#endif // ROTATION_H
