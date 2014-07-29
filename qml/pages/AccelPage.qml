@@ -29,14 +29,26 @@ Page {
         return '<b>' + convertNumber(n).toFixed(3) + ' ' + unit + '</b>';
     }
 
-    function updateAbsPlot() {
-        absplot.addValue(convertNumber(accelerometer.abs));
-        absplot.update();
+    function updateXPlot() {
+        xplot.addValue(convertNumber(accelerometer.ax));
+        xplot.update();
+    }
+
+    function updateYPlot() {
+        yplot.addValue(convertNumber(accelerometer.ay));
+        yplot.update();
+    }
+
+    function updateZPlot() {
+        zplot.addValue(convertNumber(accelerometer.az));
+        zplot.update();
     }
 
     Component.onCompleted: {
         accelerometer.activate(Constants.PART_PAGE);
-        accelerometer.absChanged.connect(updateAbsPlot);
+        accelerometer.axChanged.connect(updateXPlot);
+        accelerometer.ayChanged.connect(updateYPlot);
+        accelerometer.azChanged.connect(updateZPlot);
     }
 
     Component.onDestruction: accelerometer.deactivate(Constants.PART_PAGE)
@@ -73,26 +85,62 @@ Page {
             PageHeader {
                 title: qsTr("Accelerometer")
             }
-            Label {
-                id: xlabel
-                font.pixelSize: Theme.fontSizeLarge
-                anchors.right: parent.right
-                anchors.rightMargin: Theme.paddingLarge
-                text: 'X: ' + page.formatNumber(accelerometer.ax)
+            Column {
+                width: parent.width
+                spacing: Theme.paddingSmall
+
+                Label {
+                    id: xlabel
+                    font.pixelSize: Theme.fontSizeLarge
+                    anchors.right: parent.right
+                    anchors.rightMargin: Theme.paddingLarge
+                    text: 'X: ' + page.formatNumber(accelerometer.ax)
+                }
+                PlotWidget {
+                    id: xplot
+                    width: parent.width
+                    height: 150
+                    plotColor: Theme.highlightColor
+                    scaleColor: Theme.secondaryHighlightColor
+                }
             }
-            Label {
-                id: ylabel
-                font.pixelSize: Theme.fontSizeLarge
-                anchors.right: parent.right
-                anchors.rightMargin: Theme.paddingLarge
-                text: 'Y: ' + page.formatNumber(accelerometer.ay)
+            Column {
+                width: parent.width
+                spacing: Theme.paddingSmall
+
+                Label {
+                    id: ylabel
+                    font.pixelSize: Theme.fontSizeLarge
+                    anchors.right: parent.right
+                    anchors.rightMargin: Theme.paddingLarge
+                    text: 'Y: ' + page.formatNumber(accelerometer.ay)
+                }
+                PlotWidget {
+                    id: yplot
+                    width: parent.width
+                    height: 150
+                    plotColor: Theme.highlightColor
+                    scaleColor: Theme.secondaryHighlightColor
+                }
             }
-            Label {
-                id: zlabel
-                font.pixelSize: Theme.fontSizeLarge
-                anchors.right: parent.right
-                anchors.rightMargin: Theme.paddingLarge
-                text: 'Z: ' + page.formatNumber(accelerometer.az)
+            Column {
+                width: parent.width
+                spacing: Theme.paddingSmall
+
+                Label {
+                    id: zlabel
+                    font.pixelSize: Theme.fontSizeLarge
+                    anchors.right: parent.right
+                    anchors.rightMargin: Theme.paddingLarge
+                    text: 'Z: ' + page.formatNumber(accelerometer.az)
+                }
+                PlotWidget {
+                    id: zplot
+                    width: parent.width
+                    height: 150
+                    plotColor: Theme.highlightColor
+                    scaleColor: Theme.secondaryHighlightColor
+                }
             }
             Label {
                 id: abslabel
@@ -100,13 +148,6 @@ Page {
                 anchors.right: parent.right
                 anchors.rightMargin: Theme.paddingLarge
                 text: 'Absolute: ' + page.formatNumber(accelerometer.abs)
-            }
-            PlotWidget {
-                id: absplot
-                width: parent.width
-                height: 200
-                plotColor: Theme.highlightColor
-                scaleColor: Theme.secondaryHighlightColor
             }
             Label {
                 id: absnogravlabel

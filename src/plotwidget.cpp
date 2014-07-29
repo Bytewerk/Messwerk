@@ -3,7 +3,7 @@
 #include "plotwidget.h"
 
 PlotWidget::PlotWidget(QQuickItem *parent) :
-    QQuickPaintedItem(parent), m_scrollStep(5)
+    QQuickPaintedItem(parent), m_scrollStep(3)
 {
 }
 
@@ -15,7 +15,7 @@ void PlotWidget::paint(QPainter *painter)
     scalePen.setWidth(1);
 
     QPen plotPen(m_plotColor);
-    plotPen.setWidth(3);
+    plotPen.setWidth(2);
 
 
     // draw NUM_SCALE_LINES lines for scale indication
@@ -23,6 +23,8 @@ void PlotWidget::paint(QPainter *painter)
     font.setPixelSize(font.pixelSize() * 0.7);
     font.setBold(true);
     painter->setFont(font);
+
+    painter->setRenderHint(QPainter::Antialiasing, true);
 
     QFontMetrics fontMetrics(font);
 

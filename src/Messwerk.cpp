@@ -78,7 +78,7 @@ int main(int argc, char *argv[])
     view->setSource(SailfishApp::pathTo(qml));
     view->show();
 
-    refreshTimer.start(200);
+    refreshTimer.start(100);
 
     result = app->exec();
 

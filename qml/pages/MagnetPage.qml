@@ -60,47 +60,62 @@ Page {
             PageHeader {
                 title: qsTr("Magnetometer")
             }
-            Label {
-                id: xlabel
-                font.pixelSize: Theme.fontSizeLarge
-                anchors.right: parent.right
-                anchors.rightMargin: Theme.paddingLarge
-                text: 'X: ' + page.formatNumber(magnetometer.mx)
-            }
-            PlotWidget {
-                id: xplot
+            Column {
                 width: parent.width
-                height: 150
-                plotColor: Theme.highlightColor
-                scaleColor: Theme.secondaryHighlightColor
+                spacing: Theme.paddingSmall
+
+                Label {
+                    id: xlabel
+                    font.pixelSize: Theme.fontSizeLarge
+                    anchors.right: parent.right
+                    anchors.rightMargin: Theme.paddingLarge
+                    text: 'X: ' + page.formatNumber(magnetometer.mx)
+                }
+                PlotWidget {
+                    id: xplot
+                    width: parent.width
+                    height: 150
+                    plotColor: Theme.highlightColor
+                    scaleColor: Theme.secondaryHighlightColor
+                }
             }
-            Label {
-                id: ylabel
-                font.pixelSize: Theme.fontSizeLarge
-                anchors.right: parent.right
-                anchors.rightMargin: Theme.paddingLarge
-                text: 'Y: ' + page.formatNumber(magnetometer.my)
-            }
-            PlotWidget {
-                id: yplot
+            Column {
                 width: parent.width
-                height: 150
-                plotColor: Theme.highlightColor
-                scaleColor: Theme.secondaryHighlightColor
+                spacing: Theme.paddingSmall
+
+                Label {
+                    id: ylabel
+                    font.pixelSize: Theme.fontSizeLarge
+                    anchors.right: parent.right
+                    anchors.rightMargin: Theme.paddingLarge
+                    text: 'Y: ' + page.formatNumber(magnetometer.my)
+                }
+                PlotWidget {
+                    id: yplot
+                    width: parent.width
+                    height: 150
+                    plotColor: Theme.highlightColor
+                    scaleColor: Theme.secondaryHighlightColor
+                }
             }
-            Label {
-                id: zlabel
-                font.pixelSize: Theme.fontSizeLarge
-                anchors.right: parent.right
-                anchors.rightMargin: Theme.paddingLarge
-                text: 'Z: ' + page.formatNumber(magnetometer.mz)
-            }
-            PlotWidget {
-                id: zplot
+            Column {
                 width: parent.width
-                height: 150
-                plotColor: Theme.highlightColor
-                scaleColor: Theme.secondaryHighlightColor
+                spacing: Theme.paddingSmall
+
+                Label {
+                    id: zlabel
+                    font.pixelSize: Theme.fontSizeLarge
+                    anchors.right: parent.right
+                    anchors.rightMargin: Theme.paddingLarge
+                    text: 'Z: ' + page.formatNumber(magnetometer.mz)
+                }
+                PlotWidget {
+                    id: zplot
+                    width: parent.width
+                    height: 150
+                    plotColor: Theme.highlightColor
+                    scaleColor: Theme.secondaryHighlightColor
+                }
             }
             Label {
                 id: precisionlabel
