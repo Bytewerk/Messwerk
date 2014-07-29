@@ -43,6 +43,7 @@ signals:
 
 public slots:
     void addValue(qreal v);
+    void reset(void);
 
 };
 

@@ -9,31 +9,38 @@ Page {
 
     property bool useRad: false;
 
+    function convertNumber(n) {
+        if(useRad) {
+            n *= 0.017453; // *pi/180
+        }
+
+        return n;
+    }
+
     function formatNumber(n) {
         var unit;
 
         if(useRad) {
-            n *= 0.017453; // *pi/180
             unit = 'rad';
         } else {
             unit = '°'
         }
 
-        return '<b>' + n.toFixed(3) + ' ' + unit + '</b>';
+        return '<b>' + convertNumber(n).toFixed(3) + ' ' + unit + '</b>';
     }
 
     function updateXPlot() {
-        xplot.addValue(rotationsensor.rx);
+        xplot.addValue(convertNumber(rotationsensor.rx));
         xplot.update();
     }
 
     function updateYPlot() {
-        yplot.addValue(rotationsensor.ry);
+        yplot.addValue(convertNumber(rotationsensor.ry));
         yplot.update();
     }
 
     function updateZPlot() {
-        zplot.addValue(rotationsensor.rz);
+        zplot.addValue(convertNumber(rotationsensor.rz));
         zplot.update();
     }
 
@@ -55,6 +62,10 @@ Page {
             MenuItem {
                 function toggleUnit() {
                     useRad = !useRad;
+
+                    xplot.reset();
+                    yplot.reset();
+                    zplot.reset();
                 }
 
                 text: qsTr("Change unit to " + (useRad ? '°' : 'rad'))

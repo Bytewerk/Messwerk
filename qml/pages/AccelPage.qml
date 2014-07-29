@@ -9,21 +9,28 @@ Page {
 
     property bool useGs: false;
 
+    function convertNumber(n) {
+        if(useGs) {
+            n /= 9.81; // *pi/180
+        }
+
+        return n;
+    }
+
     function formatNumber(n) {
         var unit;
 
         if(useGs) {
-            n /= 9.81;
             unit = 'g';
         } else {
             unit = 'm/s²'
         }
 
-        return '<b>' + n.toFixed(3) + ' ' + unit + '</b>';
+        return '<b>' + convertNumber(n).toFixed(3) + ' ' + unit + '</b>';
     }
 
     function updateAbsPlot() {
-        absplot.addValue(accelerometer.abs);
+        absplot.addValue(convertNumber(accelerometer.abs));
         absplot.update();
     }
 
@@ -43,6 +50,8 @@ Page {
             MenuItem {
                 function toggleUnit() {
                     useGs = !useGs;
+
+                    absplot.reset();
                 }
 
                 text: qsTr("Change unit to " + (useGs ? 'm/s²' : 'g'))

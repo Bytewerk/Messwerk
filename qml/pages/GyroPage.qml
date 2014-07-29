@@ -9,31 +9,38 @@ Page {
 
     property bool useRad: false;
 
+    function convertNumber(n) {
+        if(useRad) {
+            n *= 0.017453; // *pi/180
+        }
+
+        return n;
+    }
+
     function formatNumber(n) {
         var unit;
 
         if(useRad) {
-            n *= 0.017453; // *pi/180
             unit = 'rad/s';
         } else {
             unit = '°/s'
         }
 
-        return '<b>' + n.toFixed(3) + ' ' + unit + '</b>';
+        return '<b>' + convertNumber(n).toFixed(3) + ' ' + unit + '</b>';
     }
 
     function updateXPlot() {
-        xplot.addValue(gyroscope.rx);
+        xplot.addValue(convertNumber(gyroscope.rx));
         xplot.update();
     }
 
     function updateYPlot() {
-        yplot.addValue(gyroscope.ry);
+        yplot.addValue(convertNumber(gyroscope.ry));
         yplot.update();
     }
 
     function updateZPlot() {
-        zplot.addValue(gyroscope.rz);
+        zplot.addValue(convertNumber(gyroscope.rz));
         zplot.update();
     }
 
@@ -55,6 +62,10 @@ Page {
             MenuItem {
                 function toggleUnit() {
                     useRad = !useRad;
+
+                    xplot.reset();
+                    yplot.reset();
+                    zplot.reset();
                 }
 
                 text: qsTr("Change unit to " + (useRad ? '°/s' : 'rad/s'))

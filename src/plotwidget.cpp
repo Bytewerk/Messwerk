@@ -112,3 +112,8 @@ void PlotWidget::addValue(qreal v)
         m_maxValue += 0.5;
     }
 }
+
+void PlotWidget::reset()
+{
+    m_values.clear();
+}
