@@ -63,7 +63,9 @@ Page {
                 function toggleUnit() {
                     useGs = !useGs;
 
-                    absplot.reset();
+                    xplot.reset();
+                    yplot.reset();
+                    zplot.reset();
                 }
 
                 text: qsTr("Change unit to " + (useGs ? 'm/s²' : 'g'))
