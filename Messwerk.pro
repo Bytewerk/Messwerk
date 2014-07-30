@@ -24,7 +24,9 @@ SOURCES += src/Messwerk.cpp \
     src/magnetometer.cpp \
     src/sensor.cpp \
     src/plotwidget.cpp \
-    src/rotation.cpp
+    src/rotation.cpp \
+    src/light.cpp \
+    src/proximity.cpp
 
 OTHER_FILES += qml/Messwerk.qml \
     qml/cover/CoverPage.qml \
@@ -55,5 +57,7 @@ HEADERS += \
     src/magnetometer.h \
     src/sensor.h \
     src/plotwidget.h \
-    src/rotation.h
+    src/rotation.h \
+    src/light.h \
+    src/proximity.h
 

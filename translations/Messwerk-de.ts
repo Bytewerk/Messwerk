@@ -42,10 +42,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Light</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Info</source>
         <translation type="unfinished"></translation>
     </message>
@@ -59,6 +55,10 @@
     </message>
     <message>
         <source>Rotation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Light &amp; Proximity</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -95,15 +95,19 @@
 <context>
     <name>LightPage</name>
     <message>
-        <source>DummyItem</source>
+        <source>Light &amp; Proximity</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Light</source>
+        <source>Brightness</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>TODO</source>
+        <source>Proximity</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Proximity detected</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

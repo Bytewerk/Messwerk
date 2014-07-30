@@ -89,7 +89,7 @@ Page {
             }
             Button {
                 anchors.horizontalCenter: parent.horizontalCenter
-                text: qsTr("Light")
+                text: qsTr("Light & Proximity")
                 onClicked: pageStack.push(Qt.resolvedUrl("LightPage.qml"))
             }
         }
