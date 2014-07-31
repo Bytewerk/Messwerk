@@ -4,15 +4,13 @@
 #include "rotation.h"
 
 
-Rotation::Rotation(QObject *parent)
+Rotation::Rotation(bool updateInternally, QObject *parent)
     : Sensor(parent)
 {
     m_sensor = new QRotationSensor(this);
 
-    if(m_sensor) {
-        qDebug() << "Rotation sensor activated" << m_sensor;
-    } else {
-        qDebug() << "Failed to activate Rotation sensor";
+    if(updateInternally) {
+        QObject::connect(m_sensor, SIGNAL(readingChanged()), this, SLOT(refresh()));
     }
 }
 

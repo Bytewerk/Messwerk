@@ -1,10 +1,14 @@
 #include "light.h"
 
 
-Light::Light(QObject *parent)
+Light::Light(bool updateInternally, QObject *parent)
     : Sensor(parent)
 {
     m_sensor = new QLightSensor(this);
+
+    if(updateInternally) {
+        QObject::connect(m_sensor, SIGNAL(readingChanged()), this, SLOT(refresh()));
+    }
 }
 
 Light::~Light()

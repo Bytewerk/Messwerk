@@ -15,7 +15,7 @@ class Light : public Sensor
         qreal m_brightness;
 
     public:
-        explicit Light(QObject *parent = NULL);
+        explicit Light(bool updateInternally = false, QObject *parent = NULL);
         ~Light();
 
         qreal brightness(void) const { return m_brightness; }

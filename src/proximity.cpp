@@ -1,10 +1,14 @@
 #include "proximity.h"
 
 
-Proximity::Proximity(QObject *parent)
+Proximity::Proximity(bool updateInternally, QObject *parent)
     : Sensor(parent)
 {
     m_sensor = new QProximitySensor(this);
+
+    if(updateInternally) {
+        QObject::connect(m_sensor, SIGNAL(readingChanged()), this, SLOT(refresh()));
+    }
 }
 
 Proximity::~Proximity()

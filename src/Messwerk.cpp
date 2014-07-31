@@ -62,19 +62,19 @@ int main(int argc, char *argv[])
 
     QTimer refreshTimer;
 
-    Accelerometer accelerometer;
-    Gyroscope gyroscope;
-    Magnetometer magnetometer;
-    Rotation rotation;
-    Light light;
-    Proximity proximity;
+    Accelerometer accelerometer(false);
+    Gyroscope gyroscope(false);
+    Magnetometer magnetometer(false);
+    Rotation rotation(false);
+    Light light(false);
+    Proximity proximity(true);
 
+    // connect not self-refreshing sensors to the global timer
     QObject::connect(&refreshTimer, SIGNAL(timeout()), &accelerometer, SLOT(refresh()));
     QObject::connect(&refreshTimer, SIGNAL(timeout()), &gyroscope, SLOT(refresh()));
     QObject::connect(&refreshTimer, SIGNAL(timeout()), &magnetometer, SLOT(refresh()));
     QObject::connect(&refreshTimer, SIGNAL(timeout()), &rotation, SLOT(refresh()));
     QObject::connect(&refreshTimer, SIGNAL(timeout()), &light, SLOT(refresh()));
-    QObject::connect(&refreshTimer, SIGNAL(timeout()), &proximity, SLOT(refresh()));
 
     QString qml = QString("qml/%1.qml").arg("Messwerk");
     view->rootContext()->setContextProperty("accelerometer", &accelerometer);

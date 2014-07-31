@@ -21,7 +21,7 @@ class Magnetometer : public Sensor
         qreal m_precision;
 
     public:
-        explicit Magnetometer(QObject *parent = NULL);
+        explicit Magnetometer(bool updateInternally = false, QObject *parent = NULL);
         ~Magnetometer();
 
         qreal mx(void) const { return m_mx; }

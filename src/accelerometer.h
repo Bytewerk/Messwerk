@@ -21,7 +21,7 @@ class Accelerometer : public Sensor
         qreal m_abs;
 
 	public:
-		explicit Accelerometer(QObject *parent = NULL);
+        explicit Accelerometer(bool updateInternally = false, QObject *parent = NULL);
 		~Accelerometer();
 
         qreal ax(void) const { return m_ax; }

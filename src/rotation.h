@@ -19,7 +19,7 @@ class Rotation : public Sensor
         qreal m_rz;
 
     public:
-        explicit Rotation(QObject *parent = NULL);
+        explicit Rotation(bool updateInternally = false, QObject *parent = NULL);
         ~Rotation();
 
         qreal rx(void) const { return m_rx; }

@@ -3,10 +3,14 @@
 #include "accelerometer.h"
 
 
-Accelerometer::Accelerometer(QObject *parent)
+Accelerometer::Accelerometer(bool updateInternally, QObject *parent)
     : Sensor(parent)
 {
     m_sensor = new QAccelerometer(this);
+
+    if(updateInternally) {
+        QObject::connect(m_sensor, SIGNAL(readingChanged()), this, SLOT(refresh()));
+    }
 }
 
 Accelerometer::~Accelerometer()

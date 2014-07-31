@@ -3,10 +3,14 @@
 #include "gyroscope.h"
 
 
-Gyroscope::Gyroscope(QObject *parent)
+Gyroscope::Gyroscope(bool updateInternally, QObject *parent)
     : Sensor(parent)
 {
     m_sensor = new QGyroscope(this);
+
+    if(updateInternally) {
+        QObject::connect(m_sensor, SIGNAL(readingChanged()), this, SLOT(refresh()));
+    }
 }
 
 Gyroscope::~Gyroscope()

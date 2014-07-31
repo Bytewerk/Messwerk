@@ -19,7 +19,7 @@ class Gyroscope : public Sensor
         qreal m_rz;
 
     public:
-        explicit Gyroscope(QObject *parent = NULL);
+        explicit Gyroscope(bool updateInternally = false, QObject *parent = NULL);
         ~Gyroscope();
 
         qreal rx(void) const { return m_rx; }

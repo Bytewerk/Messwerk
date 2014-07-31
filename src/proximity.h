@@ -15,7 +15,7 @@ class Proximity : public Sensor
         bool m_detected;
 
     public:
-        explicit Proximity(QObject *parent = NULL);
+        explicit Proximity(bool updateInternally = false, QObject *parent = NULL);
         ~Proximity();
 
         bool detected(void) const { return m_detected; }

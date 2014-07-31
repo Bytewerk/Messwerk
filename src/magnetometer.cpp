@@ -3,10 +3,14 @@
 #include "magnetometer.h"
 
 
-Magnetometer::Magnetometer(QObject *parent)
+Magnetometer::Magnetometer(bool updateInternally, QObject *parent)
     : Sensor(parent)
 {
     m_sensor = new QMagnetometer(this);
+
+    if(updateInternally) {
+        QObject::connect(m_sensor, SIGNAL(readingChanged()), this, SLOT(refresh()));
+    }
 }
 
 Magnetometer::~Magnetometer()
