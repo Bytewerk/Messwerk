@@ -35,14 +35,10 @@
     </message>
     <message>
         <source>Select Sensor</source>
-        <translation type="unfinished"></translation>
+        <translation>Sensor auswählen</translation>
     </message>
     <message>
         <source>Position</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Accelerometer</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -63,6 +59,10 @@
     </message>
     <message>
         <source>Light &amp; Proximity</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Accelerometer</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -130,10 +130,6 @@
     </message>
     <message>
         <source>Position</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>TODO</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

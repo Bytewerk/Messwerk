@@ -40,6 +40,7 @@
 #include <QQmlContext>
 #include <QGuiApplication>
 #include <QTimer>
+#include <QGeoSatelliteInfoSource>
 
 #include "accelerometer.h"
 #include "gyroscope.h"
@@ -49,6 +50,7 @@
 #include "proximity.h"
 
 #include "plotwidget.h"
+#include "satelliteposwidget.h"
 
 
 int main(int argc, char *argv[])
@@ -59,6 +61,7 @@ int main(int argc, char *argv[])
     QQuickView *view = SailfishApp::createView();
 
     qmlRegisterType<PlotWidget>("MesswerkWidgets", 1, 0, "PlotWidget");
+    qmlRegisterType<SatellitePosWidget>("MesswerkWidgets", 1, 0, "SatellitePosWidget");
 
     QTimer refreshTimer;
 

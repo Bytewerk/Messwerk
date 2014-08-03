@@ -116,10 +116,6 @@
         <source>Position</source>
         <translation type="unfinished"></translation>
     </message>
-    <message>
-        <source>TODO</source>
-        <translation type="unfinished"></translation>
-    </message>
 </context>
 <context>
     <name>RotationPage</name>

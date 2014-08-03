@@ -13,7 +13,7 @@
 TARGET = Messwerk
 
 CONFIG += sailfishapp
-QT += sensors
+QT += sensors location
 
 QMAKE_CXXFLAGS += -std=c++0x
 QMAKE_LFLAGS += -std=c++0x
@@ -26,7 +26,8 @@ SOURCES += src/Messwerk.cpp \
     src/plotwidget.cpp \
     src/rotation.cpp \
     src/light.cpp \
-    src/proximity.cpp
+    src/proximity.cpp \
+    src/satelliteposwidget.cpp
 
 OTHER_FILES += qml/Messwerk.qml \
     qml/cover/CoverPage.qml \
@@ -59,5 +60,5 @@ HEADERS += \
     src/plotwidget.h \
     src/rotation.h \
     src/light.h \
-    src/proximity.h
-
+    src/proximity.h \
+    src/satelliteposwidget.h

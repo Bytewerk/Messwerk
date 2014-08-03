@@ -1,6 +1,6 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
-
+import MesswerkWidgets 1.0
 
 Page {
     id: page
@@ -32,9 +32,13 @@ Page {
             PageHeader {
                 title: qsTr("Position")
             }
-            Label {
-                anchors.horizontalCenter: parent.horizontalCenter
-                text: qsTr("TODO")
+            SatellitePosWidget {
+                id: zplot
+                width: parent.width
+                height: parent.width
+                visibleColor: Theme.primaryColor
+                usedColor: Theme.highlightColor
+                scaleColor: Theme.secondaryHighlightColor
             }
         }
     }
