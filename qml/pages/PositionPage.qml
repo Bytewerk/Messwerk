@@ -5,6 +5,11 @@ import MesswerkWidgets 1.0
 Page {
     id: page
 
+    Component.onCompleted: {
+        skyPlot.setSatelliteInfo(satelliteinfo);
+        satelliteinfo.newDataAvailable.connect(skyPlot.update)
+    }
+
     // To enable PullDownMenu, place our content in a SilicaFlickable
     SilicaFlickable {
         anchors.fill: parent
@@ -33,7 +38,7 @@ Page {
                 title: qsTr("Position")
             }
             SatellitePosWidget {
-                id: zplot
+                id: skyPlot
                 width: parent.width
                 height: parent.width
                 visibleColor: Theme.primaryColor

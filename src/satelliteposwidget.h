@@ -2,7 +2,8 @@
 #define SATELLITEPOSWIDGET_H
 
 #include <QQuickPaintedItem>
-#include <QGeoSatelliteInfo>
+
+#include "satelliteinfo.h"
 
 class SatellitePosWidget : public QQuickPaintedItem
 {
@@ -12,34 +13,19 @@ class SatellitePosWidget : public QQuickPaintedItem
     Q_PROPERTY(QColor usedColor READ usedColor WRITE setusedColor)
     Q_PROPERTY(QColor scaleColor READ scaleColor WRITE setscaleColor)
 
-public:
-    struct SatelliteData {
-        qreal  azimuth;         // in Degrees
-        qreal  elevation;       // in Degrees
-        int    signalStrength;  // in dB
-        bool   inUse;
-        qint64 lastUpdated;     // in milliseconds
-        QGeoSatelliteInfo::SatelliteSystem satelliteSystem;
-    };
-
 private:
-    typedef QMap<int, SatelliteData> SatelliteMap;
-
     QColor m_usedColor;
     QColor m_visibleColor;
     QColor m_scaleColor;
 
-    SatelliteMap m_satellites;
-
-    qreal m_minSignal;
-    qreal m_maxSignal;
-
-    void updateMinMax(void);
+    SatelliteInfo *m_satelliteInfo;
 
 public:
     explicit SatellitePosWidget(QQuickItem *parent = 0);
 
     void paint(QPainter *painter);
+
+    Q_INVOKABLE void setSatelliteInfo(SatelliteInfo *si) { m_satelliteInfo = si; }
 
     void setvisibleColor(const QColor &color) { m_visibleColor = color; }
     void setusedColor(const QColor &color) { m_usedColor = color; }
@@ -50,11 +36,6 @@ public:
     const QColor& scaleColor() { return m_scaleColor; }
 
 signals:
-
-public slots:
-    void setSatellitesInUse(const QList<QGeoSatelliteInfo> &satellites);
-    void setSatellitesInView(const QList<QGeoSatelliteInfo> &satellites);
-
 };
 
 #endif // SATELLITEPOSWIDGET_H

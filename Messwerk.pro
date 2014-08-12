@@ -27,7 +27,8 @@ SOURCES += src/Messwerk.cpp \
     src/rotation.cpp \
     src/light.cpp \
     src/proximity.cpp \
-    src/satelliteposwidget.cpp
+    src/satelliteposwidget.cpp \
+    src/satelliteinfo.cpp
 
 OTHER_FILES += qml/Messwerk.qml \
     qml/cover/CoverPage.qml \
@@ -61,4 +62,5 @@ HEADERS += \
     src/rotation.h \
     src/light.h \
     src/proximity.h \
-    src/satelliteposwidget.h
+    src/satelliteposwidget.h \
+    src/satelliteinfo.h

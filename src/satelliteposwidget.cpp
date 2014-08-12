@@ -4,58 +4,9 @@
 
 #include "satelliteposwidget.h"
 
-void SatellitePosWidget::updateMinMax()
-{
-    m_minSignal =  1e20;
-    m_maxSignal = -1e20;
-
-    for(int id: m_satellites.keys()) {
-        const SatelliteData &sd = m_satellites[id];
-
-        if(sd.signalStrength < m_minSignal) {
-            m_minSignal = sd.signalStrength;
-        }
-
-        if(sd.signalStrength > m_maxSignal) {
-            m_maxSignal = sd.signalStrength;
-        }
-    }
-
-    // prevent zero range
-    if(m_maxSignal == m_minSignal) {
-        m_minSignal -= 1;
-    }
-
-    qDebug() << "max: " << m_maxSignal << " min: " << m_minSignal;
-}
-
 SatellitePosWidget::SatellitePosWidget(QQuickItem *parent) :
     QQuickPaintedItem(parent)
 {
-    SatelliteData sd;
-    sd.azimuth = 45;
-    sd.elevation = 30;
-    sd.inUse = true;
-    sd.lastUpdated = 0;
-    sd.signalStrength = -30;
-
-    m_satellites.insert(0, sd);
-
-    sd.azimuth = 234;
-    sd.elevation = 80;
-    sd.signalStrength = -40;
-    sd.inUse = false;
-
-    m_satellites.insert(1, sd);
-
-    sd.azimuth = 0;
-    sd.elevation = 0;
-    sd.signalStrength = -50;
-    sd.inUse = false;
-
-    m_satellites.insert(2, sd);
-
-    updateMinMax();
 }
 
 void SatellitePosWidget::paint(QPainter *painter)
@@ -98,13 +49,21 @@ void SatellitePosWidget::paint(QPainter *painter)
         painter->drawLine(center + mappedStart, center + mappedEnd);
     }
 
+    if(!m_satelliteInfo) {
+        return;
+    }
+
     QBrush usedBrush(m_usedColor);
     QBrush visibleBrush(m_visibleColor);
 
-    painter->setPen(Qt::NoPen); // clear pen, no border
+    QPen usedPen(m_usedColor);
+    QPen visiblePen(m_visibleColor);
 
-    for(int id: m_satellites.keys()) {
-        const SatelliteData &sd = m_satellites[id];
+    usedPen.setColor(m_usedColor);
+    visiblePen.setColor(m_visibleColor);
+
+    for(int id: m_satelliteInfo->allSatellites()) {
+        const SatelliteInfo::SatelliteData &sd = (*m_satelliteInfo)[id];
 
         // determine where to render the satellite by rotating and scaling the "north" unit vector
         QTransform t;
@@ -122,64 +81,26 @@ void SatellitePosWidget::paint(QPainter *painter)
             painter->setBrush(visibleBrush);
         }
 
-        qreal sizeFactor = (sd.signalStrength - m_minSignal) / (m_maxSignal - m_minSignal);
+        painter->setPen(Qt::NoPen); // clear pen, no border
+
+        qreal minSignal = m_satelliteInfo->minSignal();
+        qreal maxSignal = m_satelliteInfo->maxSignal();
+
+        qreal sizeFactor = (sd.signalStrength - minSignal) / (maxSignal - minSignal);
 
         qreal satRadius = minSize + sizeFactor * (maxSize - minSize);
+        QPointF satCenter = center + satPos;
 
-        painter->drawEllipse(center + satPos, satRadius, satRadius);
+        painter->drawEllipse(satCenter, satRadius, satRadius);
 
-        qDebug() << "Drawing satellite #" << id << " at " << satPos << " with radius " << satRadius << " (signal: " << sd.signalStrength << ", size factor " << sizeFactor << ")";
-    }
-}
-
-// FIXME: Manage InUse flag for internal satellite list
-
-void SatellitePosWidget::setSatellitesInUse(const QList<QGeoSatelliteInfo> &satellites)
-{
-    for(const QGeoSatelliteInfo &sat: satellites) {
-        SatelliteData sd;
-
-        sd.inUse = true;
-        sd.azimuth = sat.attribute(QGeoSatelliteInfo::Azimuth);
-        sd.elevation = sat.attribute(QGeoSatelliteInfo::Elevation);
-        sd.signalStrength = sat.signalStrength();
-        sd.lastUpdated = QDateTime::currentMSecsSinceEpoch();
-        sd.satelliteSystem = sat.satelliteSystem();
-
-        SatelliteMap::Iterator iter = m_satellites.find(sat.satelliteIdentifier());
-
-        if(iter != m_satellites.end()) {
-            // entry already exists
-            *iter = sd;
+        // draw label of the satellite
+        if(sd.inUse) {
+            painter->setPen(usedPen);
         } else {
-            m_satellites.insert(sat.satelliteIdentifier(), sd);
+            painter->setPen(visiblePen);
         }
+
+        QString text = QLocale::system().toString(id);
+        painter->drawText(QRect(satCenter.x() + satRadius + 2, satCenter.y(), 0, 0), Qt::AlignVCenter | Qt::AlignLeft | Qt::TextDontClip, text);
     }
-
-    updateMinMax();
-}
-
-void SatellitePosWidget::setSatellitesInView(const QList<QGeoSatelliteInfo> &satellites)
-{
-    for(const QGeoSatelliteInfo &sat: satellites) {
-        SatelliteData sd;
-
-        sd.inUse = false;
-        sd.azimuth = sat.attribute(QGeoSatelliteInfo::Azimuth);
-        sd.elevation = sat.attribute(QGeoSatelliteInfo::Elevation);
-        sd.signalStrength = sat.signalStrength();
-        sd.lastUpdated = QDateTime::currentMSecsSinceEpoch();
-        sd.satelliteSystem = sat.satelliteSystem();
-
-        SatelliteMap::Iterator iter = m_satellites.find(sat.satelliteIdentifier());
-
-        if(iter != m_satellites.end()) {
-            // entry already exists
-            *iter = sd;
-        } else {
-            m_satellites.insert(sat.satelliteIdentifier(), sd);
-        }
-    }
-
-    updateMinMax();
 }
