@@ -7,7 +7,9 @@
 #include <QSet>
 #include <QMap>
 
-class SatelliteInfo : public QObject
+#include "activateable.h"
+
+class SatelliteInfo : public QObject, public Activateable
 {
     Q_OBJECT
 
@@ -41,6 +43,7 @@ private:
     qreal m_maxSignal;
 
     QGeoSatelliteInfoSource *m_source;
+    bool                     m_sourceActive;
 
     void updateMinMax(void);
 
@@ -58,6 +61,8 @@ public:
     qreal minSignal(void) { return m_minSignal; }
     qreal maxSignal(void) { return m_maxSignal; }
 
+    Q_INVOKABLE void activate(unsigned requestingPart);
+    Q_INVOKABLE void deactivate(unsigned requestingPart);
 signals:
     void newDataAvailable(void);
 

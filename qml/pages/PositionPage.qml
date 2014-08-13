@@ -2,13 +2,18 @@ import QtQuick 2.0
 import Sailfish.Silica 1.0
 import MesswerkWidgets 1.0
 
+import "../Constants.js" as Constants
+
 Page {
     id: page
 
     Component.onCompleted: {
         skyPlot.setSatelliteInfo(satelliteinfo);
         satelliteinfo.newDataAvailable.connect(skyPlot.update)
+        satelliteinfo.activate(Constants.PART_PAGE);
     }
+
+    Component.onDestruction: satelliteinfo.deactivate(Constants.PART_PAGE)
 
     // To enable PullDownMenu, place our content in a SilicaFlickable
     SilicaFlickable {
@@ -16,10 +21,10 @@ Page {
 
         // PullDownMenu and PushUpMenu must be declared in SilicaFlickable, SilicaListView or SilicaGridView
         PullDownMenu {
-            MenuItem {
+            /*MenuItem {
                 text: qsTr("DummyItem")
                 onClicked: pageStack.push(Qt.resolvedUrl("InfoPage.qml"))
-            }
+            }*/
         }
 
         // Tell SilicaFlickable the height of its content.

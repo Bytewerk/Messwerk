@@ -109,10 +109,6 @@
 <context>
     <name>PositionPage</name>
     <message>
-        <source>DummyItem</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Position</source>
         <translation type="unfinished"></translation>
     </message>

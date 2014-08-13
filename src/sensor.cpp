@@ -3,18 +3,16 @@
 #include "sensor.h"
 
 Sensor::Sensor(QObject *parent) :
-    QObject(parent), m_activeParts(0), m_sensor(NULL)
+    QObject(parent), m_sensor(NULL)
 {
 }
 
 
 void Sensor::activate(unsigned requestingPart)
 {
+    Activateable::activate(requestingPart);
+
     Q_ASSERT(m_sensor);
-
-    m_activeParts |= requestingPart;
-
-    qDebug() << "Active Parts: " << m_activeParts;
 
     if(!m_sensor->isActive()) {
         qDebug() << "Sensor started";
@@ -26,12 +24,10 @@ void Sensor::deactivate(unsigned requestingPart)
 {
     Q_ASSERT(m_sensor);
 
-    m_activeParts &= ~requestingPart;
-
-    qDebug() << "Active Parts: " << m_activeParts;
+    Activateable::deactivate(requestingPart);
 
     // stop the sensor if all parts are deactivated
-    if((m_activeParts == 0) && m_sensor->isActive()) {
+    if(!(this->isActive()) && m_sensor->isActive()) {
         qDebug() << "Sensor stopped";
         m_sensor->stop();
     }

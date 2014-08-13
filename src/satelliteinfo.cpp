@@ -1,4 +1,5 @@
 #include <QDateTime>
+#include <QDebug>
 
 #include "satelliteinfo.h"
 
@@ -26,14 +27,12 @@ void SatelliteInfo::updateMinMax()
 }
 
 SatelliteInfo::SatelliteInfo(QObject *parent) :
-    QObject(parent)
+    QObject(parent), m_sourceActive(false)
 {
     m_source = QGeoSatelliteInfoSource::createDefaultSource(this);
 
     connect(m_source, SIGNAL(satellitesInViewUpdated(const QList<QGeoSatelliteInfo>&)), this, SLOT(setSatellitesInView(const QList<QGeoSatelliteInfo>)));
     connect(m_source, SIGNAL(satellitesInUseUpdated(const QList<QGeoSatelliteInfo>&)), this, SLOT(setSatellitesInUse(const QList<QGeoSatelliteInfo>)));
-
-    m_source->startUpdates();
 }
 
 SatelliteInfo::~SatelliteInfo()
@@ -133,4 +132,27 @@ void SatelliteInfo::SatelliteData::updateFrom(const SatelliteInfo::SatelliteData
 
     // set last update time
     lastUpdated = QDateTime::currentMSecsSinceEpoch();
+}
+
+void SatelliteInfo::activate(unsigned requestingPart)
+{
+    Activateable::activate(requestingPart);
+
+    if(!m_sourceActive) {
+        qDebug() << "Satellite info source started";
+        m_source->startUpdates();
+        m_sourceActive = true;
+    }
+}
+
+void SatelliteInfo::deactivate(unsigned requestingPart)
+{
+    Activateable::deactivate(requestingPart);
+
+    // stop the sensor if all parts are deactivated
+    if(!(this->isActive()) && m_sourceActive) {
+        qDebug() << "Satellite info source started";
+        m_source->stopUpdates();
+        m_sourceActive = false;
+    }
 }
