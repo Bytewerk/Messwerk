@@ -2,16 +2,30 @@
 #include <QDateTime>
 #include <qmath.h>
 
+#include <sailfishapp.h>
+
 #include "satelliteposwidget.h"
 
 SatellitePosWidget::SatellitePosWidget(QQuickItem *parent) :
     QQuickPaintedItem(parent)
 {
+    m_usaSVG = new QSvgRenderer(SailfishApp::pathTo("qml/img/banners/usa.svg").toLocalFile(), this);
+    m_russiaSVG = new QSvgRenderer(SailfishApp::pathTo("qml/img/banners/russia.svg").toLocalFile(), this);
+    m_europeSVG = new QSvgRenderer(SailfishApp::pathTo("qml/img/banners/europe.svg").toLocalFile(), this);
+}
+
+SatellitePosWidget::~SatellitePosWidget()
+{
+    delete m_usaSVG;
+    delete m_russiaSVG;
+    delete m_europeSVG;
 }
 
 void SatellitePosWidget::paint(QPainter *painter)
 {
     int radius = 0;
+
+    m_europeSVG->render(painter);
 
     QPen scalePen(m_scaleColor);
     scalePen.setWidth(1);
@@ -102,5 +116,25 @@ void SatellitePosWidget::paint(QPainter *painter)
 
         QString text = QLocale::system().toString(id);
         painter->drawText(QRect(satCenter.x() + satRadius + 2, satCenter.y(), 0, 0), Qt::AlignVCenter | Qt::AlignLeft | Qt::TextDontClip, text);
+
+        // draw flag indicating the satellite system
+        QRect flagBounds(satCenter.x() + satRadius - 100, satCenter.y() - satRadius, satCenter.x() + satRadius - 2, satCenter.y() + satRadius);
+
+        switch(sd.satelliteSystem) {
+        case QGeoSatelliteInfo::GPS:
+            qDebug() << "GPS Satellite rendered";
+            m_usaSVG->render(painter, flagBounds);
+            break;
+
+        case QGeoSatelliteInfo::GLONASS:
+            qDebug() << "GLONASS Satellite rendered";
+            m_russiaSVG->render(painter, flagBounds);
+            break;
+
+        default:
+            // do nothing
+            qDebug() << "Unknown satellite system: " << sd.satelliteSystem;
+            break;
+        }
     }
 }

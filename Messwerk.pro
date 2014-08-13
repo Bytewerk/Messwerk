@@ -13,7 +13,7 @@
 TARGET = Messwerk
 
 CONFIG += sailfishapp
-QT += sensors location
+QT += sensors location svg
 
 QMAKE_CXXFLAGS += -std=c++0x
 QMAKE_LFLAGS += -std=c++0x
@@ -46,7 +46,10 @@ OTHER_FILES += qml/Messwerk.qml \
     qml/pages/AccelPage.qml \
     qml/Constants.js \
     qml/pages/PlotTestPage.qml \
-    qml/pages/RotationPage.qml
+    qml/pages/RotationPage.qml \
+    qml/img/banners/usa.svg \
+    qml/img/banners/russia.svg \
+    qml/img/banners/europe.svg
 
 # to disable building translations every time, comment out the
 # following CONFIG line

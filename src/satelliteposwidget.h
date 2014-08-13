@@ -2,6 +2,7 @@
 #define SATELLITEPOSWIDGET_H
 
 #include <QQuickPaintedItem>
+#include <QSvgRenderer>
 
 #include "satelliteinfo.h"
 
@@ -18,10 +19,15 @@ private:
     QColor m_visibleColor;
     QColor m_scaleColor;
 
+    QSvgRenderer *m_russiaSVG;
+    QSvgRenderer *m_europeSVG;
+    QSvgRenderer *m_usaSVG;
+
     SatelliteInfo *m_satelliteInfo;
 
 public:
     explicit SatellitePosWidget(QQuickItem *parent = 0);
+    ~SatellitePosWidget();
 
     void paint(QPainter *painter);
 
