@@ -16,6 +16,10 @@ void SatellitePosWidget::paint(QPainter *painter)
     QPen scalePen(m_scaleColor);
     scalePen.setWidth(1);
 
+    QPen northPen(scalePen);
+    northPen.setColor(m_northColor);
+    northPen.setWidth(3);
+
     QPoint center(this->width()/2, this->height()/2);
 
     // determine radius
@@ -36,17 +40,22 @@ void SatellitePosWidget::paint(QPainter *painter)
     painter->drawEllipse(center, (int)(0.6667 * radius), (int)(0.6667 * radius));
     painter->drawEllipse(center, (int)(0.3333 * radius), (int)(0.3333 * radius));
 
-    QPoint offsetStart(0, -radius);
     QPoint offsetEnd(0,  radius);
 
-    for(int angle = 0; angle < 180; angle += 45) {
+    for(int angle = 0; angle < 360; angle += 45) {
         QTransform t;
-        t.rotate(angle);
+        t.rotate(angle + m_northDirection);
 
-        QPoint mappedStart = t.map(offsetStart);
         QPoint mappedEnd = t.map(offsetEnd);
 
-        painter->drawLine(center + mappedStart, center + mappedEnd);
+        // draw first (north) line in northColor
+        if(angle == 0) {
+            painter->setPen(northPen);
+        } else {
+            painter->setPen(scalePen);
+        }
+
+        painter->drawLine(center, center + mappedEnd);
     }
 
     if(!m_satelliteInfo) {
@@ -67,7 +76,7 @@ void SatellitePosWidget::paint(QPainter *painter)
 
         // determine where to render the satellite by rotating and scaling the "north" unit vector
         QTransform t;
-        t.rotate(sd.azimuth);
+        t.rotate(sd.azimuth + m_northDirection);
 
         qreal scale = radius * (1.0 - sd.elevation / 90.0);
         t.scale(scale, scale);
@@ -102,5 +111,13 @@ void SatellitePosWidget::paint(QPainter *painter)
 
         QString text = QLocale::system().toString(id);
         painter->drawText(QRect(satCenter.x() + satRadius + 2, satCenter.y(), 0, 0), Qt::AlignVCenter | Qt::AlignLeft | Qt::TextDontClip, text);
+    }
+}
+
+void SatellitePosWidget::setnorthDirection(qreal arg)
+{
+    if (m_northDirection != arg) {
+        m_northDirection = arg;
+        emit northDirectionChanged(arg);
     }
 }

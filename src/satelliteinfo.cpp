@@ -151,7 +151,7 @@ void SatelliteInfo::deactivate(unsigned requestingPart)
 
     // stop the sensor if all parts are deactivated
     if(!(this->isActive()) && m_sourceActive) {
-        qDebug() << "Satellite info source started";
+        qDebug() << "Satellite info source stopped";
         m_source->stopUpdates();
         m_sourceActive = false;
     }

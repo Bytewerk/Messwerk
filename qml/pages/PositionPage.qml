@@ -7,13 +7,23 @@ import "../Constants.js" as Constants
 Page {
     id: page
 
+    function updateSkyPlot() {
+        skyPlot.northDirection = rotationsensor.rz;
+        skyPlot.update();
+    }
+
     Component.onCompleted: {
         skyPlot.setSatelliteInfo(satelliteinfo);
         satelliteinfo.newDataAvailable.connect(skyPlot.update)
         satelliteinfo.activate(Constants.PART_PAGE);
+        rotationsensor.activate(Constants.PART_PAGE)
+        rotationsensor.rzChanged.connect(updateSkyPlot);
     }
 
-    Component.onDestruction: satelliteinfo.deactivate(Constants.PART_PAGE)
+    Component.onDestruction: {
+        satelliteinfo.deactivate(Constants.PART_PAGE);
+        rotationsensor.deactivate(Constants.PART_PAGE);
+    }
 
     // To enable PullDownMenu, place our content in a SilicaFlickable
     SilicaFlickable {
@@ -48,7 +58,8 @@ Page {
                 height: parent.width
                 visibleColor: Theme.primaryColor
                 usedColor: Theme.highlightColor
-                scaleColor: Theme.secondaryHighlightColor
+                scaleColor: Theme.secondaryColor
+                northColor: Theme.secondaryHighlightColor
             }
         }
     }
