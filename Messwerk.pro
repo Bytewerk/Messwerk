@@ -13,7 +13,7 @@
 TARGET = Messwerk
 
 CONFIG += sailfishapp
-QT += sensors location
+QT += sensors positioning
 
 QMAKE_CXXFLAGS += -std=c++0x
 QMAKE_LFLAGS += -std=c++0x
