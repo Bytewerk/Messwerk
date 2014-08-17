@@ -14,7 +14,9 @@ Page {
 
     Component.onCompleted: {
         skyPlot.setSatelliteInfo(satelliteinfo);
+        strengthPlot.setSatelliteInfo(satelliteinfo);
         satelliteinfo.newDataAvailable.connect(skyPlot.update)
+        satelliteinfo.newDataAvailable.connect(strengthPlot.update)
         satelliteinfo.activate(Constants.PART_PAGE);
         rotationsensor.activate(Constants.PART_PAGE)
         rotationsensor.rzChanged.connect(updateSkyPlot);
@@ -60,6 +62,14 @@ Page {
                 usedColor: Theme.highlightColor
                 scaleColor: Theme.secondaryColor
                 northColor: Theme.secondaryHighlightColor
+            }
+            SatelliteStrengthWidget {
+                id: strengthPlot
+                width: parent.width
+                height: 200
+                visibleColor: Theme.primaryColor
+                usedColor: Theme.highlightColor
+                scaleColor: Theme.secondaryColor
             }
         }
     }

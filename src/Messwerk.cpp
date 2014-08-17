@@ -52,6 +52,7 @@
 
 #include "plotwidget.h"
 #include "satelliteposwidget.h"
+#include "satellitestrengthwidget.h"
 
 
 int main(int argc, char *argv[])
@@ -63,6 +64,7 @@ int main(int argc, char *argv[])
 
     qmlRegisterType<PlotWidget>("MesswerkWidgets", 1, 0, "PlotWidget");
     qmlRegisterType<SatellitePosWidget>("MesswerkWidgets", 1, 0, "SatellitePosWidget");
+    qmlRegisterType<SatelliteStrengthWidget>("MesswerkWidgets", 1, 0, "SatelliteStrengthWidget");
 
     QTimer refreshTimer;
 
