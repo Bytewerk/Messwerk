@@ -79,6 +79,14 @@
         <source>Art &amp; Design: sqozz, cfr34k</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>source code</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Send beer, pizza and Club Mate to</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>LightPage</name>
