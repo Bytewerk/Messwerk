@@ -50,6 +50,8 @@
 #include "proximity.h"
 #include "satelliteinfo.h"
 
+#include "settings.h"
+
 #include "plotwidget.h"
 #include "satelliteposwidget.h"
 #include "satellitestrengthwidget.h"
@@ -58,6 +60,9 @@
 int main(int argc, char *argv[])
 {
     int result = 0;
+
+    // DELME
+    Settings::instance().setLoggingPath("/tmp");
 
     QGuiApplication *app = SailfishApp::application(argc, argv);
     QQuickView *view = SailfishApp::createView();

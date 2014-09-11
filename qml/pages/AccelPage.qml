@@ -51,7 +51,12 @@ Page {
         accelerometer.azChanged.connect(updateZPlot);
     }
 
-    Component.onDestruction: accelerometer.deactivate(Constants.PART_PAGE)
+    Component.onDestruction: {
+        accelerometer.axChanged.disconnect(updateXPlot);
+        accelerometer.ayChanged.disconnect(updateYPlot);
+        accelerometer.azChanged.disconnect(updateZPlot);
+        accelerometer.deactivate(Constants.PART_PAGE)
+    }
 
     // To enable PullDownMenu, place our content in a SilicaFlickable
     SilicaFlickable {
@@ -59,6 +64,18 @@ Page {
 
         // PullDownMenu and PushUpMenu must be declared in SilicaFlickable, SilicaListView or SilicaGridView
         PullDownMenu {
+            MenuItem {
+                function toggleLogging() {
+                    if(accelerometer.isLogging()) {
+                        accelerometer.stopLogging();
+                    } else {
+                        accelerometer.startLogging();
+                    }
+                }
+
+                text: (accelerometer.isLogging() ? qsTr("Stop") : qsTr("Start")) + qsTr(" logging")
+                onClicked: toggleLogging()
+            }
             MenuItem {
                 function toggleUnit() {
                     useGs = !useGs;

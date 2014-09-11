@@ -17,6 +17,7 @@ class Activateable
     virtual void deactivate(unsigned requestingPart);
 
     virtual bool isActive(void);
+    virtual bool isPartActive(unsigned part);
 };
 
 #endif // ACTIVATEABLE_H

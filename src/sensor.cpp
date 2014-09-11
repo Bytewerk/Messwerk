@@ -1,4 +1,7 @@
 #include <QDebug>
+#include <QDateTime>
+
+#include "settings.h"
 
 #include "sensor.h"
 
@@ -31,4 +34,31 @@ void Sensor::deactivate(unsigned requestingPart)
         qDebug() << "Sensor stopped";
         m_sensor->stop();
     }
+}
+
+void Sensor::startLogging()
+{
+    QDateTime now = QDateTime::currentDateTime();
+
+    QString fileName = m_logBaseName + "_" + now.toString("yyyymmdd-hhmmss") + ".csv";
+    QString absPath = QDir(Settings::instance().getLoggingPath()).filePath(fileName);
+
+    qDebug() << "Starting to log at" << absPath;
+
+    m_logFile.setFileName(absPath);
+    m_logFile.open(QFile::WriteOnly);
+
+    activate(Activateable::PART_LOGGING);
+}
+
+void Sensor::stopLogging()
+{
+    deactivate(Activateable::PART_LOGGING);
+
+    m_logFile.close();
+}
+
+bool Sensor::isLogging()
+{
+    return isPartActive(Activateable::PART_LOGGING);
 }

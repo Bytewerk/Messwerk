@@ -76,6 +76,7 @@ Page {
                 anchors.horizontalCenter: parent.horizontalCenter
                 text: qsTr("Accelerometer")
                 onClicked: pageStack.push(Qt.resolvedUrl("AccelPage.qml"))
+                color: (accelerometer.isLogging() ? Theme.highlightColor : Theme.primaryColor)
             }
             Button {
                 anchors.horizontalCenter: parent.horizontalCenter

@@ -23,5 +23,10 @@ void Activateable::deactivate(unsigned requestingPart)
 
 bool Activateable::isActive(void)
 {
-  return (m_activeParts != 0);
+    return (m_activeParts != 0);
+}
+
+bool Activateable::isPartActive(unsigned part)
+{
+    return (m_activeParts & part) != 0;
 }
