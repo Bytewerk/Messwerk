@@ -49,7 +49,8 @@ OTHER_FILES += qml/Messwerk.qml \
     qml/pages/AccelPage.qml \
     qml/Constants.js \
     qml/pages/PlotTestPage.qml \
-    qml/pages/RotationPage.qml
+    qml/pages/RotationPage.qml \
+    qml/pages/SettingsDialog.qml
 
 # to disable building translations every time, comment out the
 # following CONFIG line

@@ -61,6 +61,10 @@
         <source>Light &amp; Proximity</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Settings</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>GyroPage</name>
@@ -193,6 +197,21 @@
     </message>
     <message>
         <source> logging</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>SettingsDialog</name>
+    <message>
+        <source>Save</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Logging</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Path for sensor logs</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

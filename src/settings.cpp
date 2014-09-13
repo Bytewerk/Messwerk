@@ -1,6 +1,7 @@
 #include "settings.h"
 
 Settings::Settings()
+    : QObject()
 {
     m_settings = new QSettings("bytewerk", "Messwerk");
 }
