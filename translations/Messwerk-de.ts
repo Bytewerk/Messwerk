@@ -84,6 +84,18 @@
         <source>Gyroscope</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Stop</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Start</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source> logging</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>InfoPage</name>
@@ -134,11 +146,43 @@
         <source>Proximity detected</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Light sensor: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Stop</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Start</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source> logging</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Proximity sensor: </source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MagnetPage</name>
     <message>
         <source>Magnetometer</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Stop</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Start</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source> logging</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -153,6 +197,18 @@
     <name>RotationPage</name>
     <message>
         <source>Rotation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Stop</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Start</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source> logging</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

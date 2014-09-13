@@ -28,6 +28,7 @@ class Gyroscope : public Sensor
 
     public slots:
         void refresh(void);
+        void logValues(void);
 
     signals:
         void rxChanged(void);

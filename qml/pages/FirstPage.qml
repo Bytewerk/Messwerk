@@ -71,27 +71,31 @@ Page {
                 anchors.horizontalCenter: parent.horizontalCenter
                 text: qsTr("Rotation")
                 onClicked: pageStack.push(Qt.resolvedUrl("RotationPage.qml"))
+                color: (rotationsensor.isLogging ? Theme.highlightColor : Theme.primaryColor)
             }
             Button {
                 anchors.horizontalCenter: parent.horizontalCenter
                 text: qsTr("Accelerometer")
                 onClicked: pageStack.push(Qt.resolvedUrl("AccelPage.qml"))
-                color: (accelerometer.isLogging() ? Theme.highlightColor : Theme.primaryColor)
+                color: (accelerometer.isLogging ? Theme.highlightColor : Theme.primaryColor)
             }
             Button {
                 anchors.horizontalCenter: parent.horizontalCenter
                 text: qsTr("Gyroscope")
                 onClicked: pageStack.push(Qt.resolvedUrl("GyroPage.qml"))
+                color: (gyroscope.isLogging ? Theme.highlightColor : Theme.primaryColor)
             }
             Button {
                 anchors.horizontalCenter: parent.horizontalCenter
                 text: qsTr("Magnetometer")
                 onClicked: pageStack.push(Qt.resolvedUrl("MagnetPage.qml"))
+                color: (magnetometer.isLogging ? Theme.highlightColor : Theme.primaryColor)
             }
             Button {
                 anchors.horizontalCenter: parent.horizontalCenter
                 text: qsTr("Light & Proximity")
                 onClicked: pageStack.push(Qt.resolvedUrl("LightPage.qml"))
+                color: ((lightsensor.isLogging || proximitysensor.isLogging) ? Theme.highlightColor : Theme.primaryColor)
             }
         }
     }

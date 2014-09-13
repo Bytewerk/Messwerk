@@ -24,6 +24,8 @@ Page {
     }
     Component.onDestruction: {
         lightsensor.deactivate(Constants.PART_PAGE);
+        lightsensor.brightnessChanged.disconnect(updateBrightnessPlot);
+
         proximitysensor.deactivate(Constants.PART_PAGE);
     }
 
@@ -33,6 +35,33 @@ Page {
 
         // Tell SilicaFlickable the height of its content.
         contentHeight: column.height
+
+        PullDownMenu {
+            MenuItem {
+                function toggleLightLogging() {
+                    if(lightsensor.isLogging) {
+                        lightsensor.stopLogging();
+                    } else {
+                        lightsensor.startLogging();
+                    }
+                }
+
+                text: qsTr("Light sensor: ") + (lightsensor.isLogging ? qsTr("Stop") : qsTr("Start")) + qsTr(" logging")
+                onClicked: toggleLightLogging()
+            }
+            MenuItem {
+                function toggleProximityLogging() {
+                    if(proximitysensor.isLogging) {
+                        proximitysensor.stopLogging();
+                    } else {
+                        proximitysensor.startLogging();
+                    }
+                }
+
+                text: qsTr("Proximity sensor: ") + (proximitysensor.isLogging ? qsTr("Stop") : qsTr("Start")) + qsTr(" logging")
+                onClicked: toggleProximityLogging()
+            }
+        }
 
         // Place our content in a Column.  The PageHeader is always placed at the top
         // of the page, followed by our content.

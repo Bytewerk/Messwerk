@@ -40,7 +40,13 @@ Page {
         magnetometer.myChanged.connect(updateYPlot);
         magnetometer.mzChanged.connect(updateZPlot);
     }
-    Component.onDestruction: magnetometer.deactivate(Constants.PART_PAGE)
+
+    Component.onDestruction: {
+        magnetometer.mxChanged.disconnect(updateXPlot);
+        magnetometer.myChanged.disconnect(updateYPlot);
+        magnetometer.mzChanged.disconnect(updateZPlot);
+        magnetometer.deactivate(Constants.PART_PAGE);
+    }
 
     // To enable PullDownMenu, place our content in a SilicaFlickable
     SilicaFlickable {
@@ -48,6 +54,21 @@ Page {
 
         // Tell SilicaFlickable the height of its content.
         contentHeight: column.height
+
+        PullDownMenu {
+            MenuItem {
+                function toggleLogging() {
+                    if(magnetometer.isLogging) {
+                        magnetometer.stopLogging();
+                    } else {
+                        magnetometer.startLogging();
+                    }
+                }
+
+                text: (magnetometer.isLogging ? qsTr("Stop") : qsTr("Start")) + qsTr(" logging")
+                onClicked: toggleLogging()
+            }
+        }
 
         // Place our content in a Column.  The PageHeader is always placed at the top
         // of the page, followed by our content.

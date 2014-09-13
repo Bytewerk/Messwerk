@@ -23,8 +23,11 @@ Page {
     }
 
     Component.onDestruction: {
+        rotationsensor.rzChanged.disconnect(updateSkyPlot);
         satelliteinfo.deactivate(Constants.PART_PAGE);
         rotationsensor.deactivate(Constants.PART_PAGE);
+        satelliteinfo.newDataAvailable.disconnect(skyPlot.update)
+        satelliteinfo.newDataAvailable.disconnect(strengthPlot.update)
     }
 
     // To enable PullDownMenu, place our content in a SilicaFlickable

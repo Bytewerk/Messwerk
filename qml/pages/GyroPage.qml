@@ -51,7 +51,13 @@ Page {
         gyroscope.rzChanged.connect(updateZPlot);
     }
 
-    Component.onDestruction: gyroscope.deactivate(Constants.PART_PAGE)
+    Component.onDestruction: {
+        gyroscope.rxChanged.disconnect(updateXPlot);
+        gyroscope.ryChanged.disconnect(updateYPlot);
+        gyroscope.rzChanged.disconnect(updateZPlot);
+        gyroscope.deactivate(Constants.PART_PAGE)
+    }
+
 
     // To enable PullDownMenu, place our content in a SilicaFlickable
     SilicaFlickable {
@@ -59,6 +65,18 @@ Page {
 
         // PullDownMenu and PushUpMenu must be declared in SilicaFlickable, SilicaListView or SilicaGridView
         PullDownMenu {
+            MenuItem {
+                function toggleLogging() {
+                    if(gyroscope.isLogging) {
+                        gyroscope.stopLogging();
+                    } else {
+                        gyroscope.startLogging();
+                    }
+                }
+
+                text: (gyroscope.isLogging ? qsTr("Stop") : qsTr("Start")) + qsTr(" logging")
+                onClicked: toggleLogging()
+            }
             MenuItem {
                 function toggleUnit() {
                     useRad = !useRad;

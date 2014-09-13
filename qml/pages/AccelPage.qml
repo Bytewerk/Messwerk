@@ -66,14 +66,14 @@ Page {
         PullDownMenu {
             MenuItem {
                 function toggleLogging() {
-                    if(accelerometer.isLogging()) {
+                    if(accelerometer.isLogging) {
                         accelerometer.stopLogging();
                     } else {
                         accelerometer.startLogging();
                     }
                 }
 
-                text: (accelerometer.isLogging() ? qsTr("Stop") : qsTr("Start")) + qsTr(" logging")
+                text: (accelerometer.isLogging ? qsTr("Stop") : qsTr("Start")) + qsTr(" logging")
                 onClicked: toggleLogging()
             }
             MenuItem {

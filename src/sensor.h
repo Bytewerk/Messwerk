@@ -11,6 +11,8 @@ class Sensor : public QObject, public Activateable
 {
     Q_OBJECT
 
+    Q_PROPERTY(bool isLogging READ isLogging NOTIFY isLoggingChanged)
+
 protected:
     QSensor *m_sensor;
     QFile    m_logFile;
@@ -27,6 +29,7 @@ public:
     Q_INVOKABLE virtual bool isLogging(void);
 
 signals:
+    void isLoggingChanged(bool);
 
 public slots:
     virtual void refresh(void) = 0;

@@ -51,7 +51,12 @@ Page {
         rotationsensor.rzChanged.connect(updateZPlot);
     }
 
-    Component.onDestruction: rotationsensor.deactivate(Constants.PART_PAGE)
+    Component.onDestruction: {
+        rotationsensor.rxChanged.disconnect(updateXPlot);
+        rotationsensor.ryChanged.disconnect(updateYPlot);
+        rotationsensor.rzChanged.disconnect(updateZPlot);
+        rotationsensor.deactivate(Constants.PART_PAGE)
+    }
 
     // To enable PullDownMenu, place our content in a SilicaFlickable
     SilicaFlickable {
@@ -59,6 +64,18 @@ Page {
 
         // PullDownMenu and PushUpMenu must be declared in SilicaFlickable, SilicaListView or SilicaGridView
         PullDownMenu {
+            MenuItem {
+                function toggleLogging() {
+                    if(rotationsensor.isLogging) {
+                        rotationsensor.stopLogging();
+                    } else {
+                        rotationsensor.startLogging();
+                    }
+                }
+
+                text: (rotationsensor.isLogging ? qsTr("Stop") : qsTr("Start")) + qsTr(" logging")
+                onClicked: toggleLogging()
+            }
             MenuItem {
                 function toggleUnit() {
                     useRad = !useRad;

@@ -22,6 +22,7 @@ class Proximity : public Sensor
 
     public slots:
         void refresh(void);
+        void logValues(void);
 
     signals:
         void detectedChanged(void);

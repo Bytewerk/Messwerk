@@ -49,6 +49,8 @@ void Sensor::startLogging()
     m_logFile.open(QFile::WriteOnly);
 
     activate(Activateable::PART_LOGGING);
+
+    emit isLoggingChanged(true);
 }
 
 void Sensor::stopLogging()
@@ -56,6 +58,8 @@ void Sensor::stopLogging()
     deactivate(Activateable::PART_LOGGING);
 
     m_logFile.close();
+
+    emit isLoggingChanged(false);
 }
 
 bool Sensor::isLogging()
