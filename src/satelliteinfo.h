@@ -6,12 +6,15 @@
 #include <QGeoSatelliteInfoSource>
 #include <QSet>
 #include <QMap>
+#include <QFile>
 
 #include "activateable.h"
 
 class SatelliteInfo : public QObject, public Activateable
 {
     Q_OBJECT
+
+    Q_PROPERTY(bool isLogging READ isLogging NOTIFY isLoggingChanged)
 
 public:
     struct SatelliteData {
@@ -45,7 +48,10 @@ private:
     QGeoSatelliteInfoSource *m_source;
     bool                     m_sourceActive;
 
+    QFile m_logFile;
+
     void updateMinMax(void);
+    void logData(void);
 
 public:
     explicit SatelliteInfo(QObject *parent = 0);
@@ -63,8 +69,15 @@ public:
 
     Q_INVOKABLE void activate(unsigned requestingPart);
     Q_INVOKABLE void deactivate(unsigned requestingPart);
+
+    Q_INVOKABLE void startLogging(void);
+    Q_INVOKABLE void stopLogging(void);
+
+    bool isLogging(void) { return isPartActive(Activateable::PART_LOGGING); }
+
 signals:
     void newDataAvailable(void);
+    void isLoggingChanged(bool);
 
 public slots:
     void setSatellitesInUse(const QList<QGeoSatelliteInfo> &satellites);

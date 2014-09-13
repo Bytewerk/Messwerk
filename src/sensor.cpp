@@ -40,7 +40,7 @@ void Sensor::startLogging()
 {
     QDateTime now = QDateTime::currentDateTime();
 
-    QString fileName = m_logBaseName + "_" + now.toString("yyyymmdd-hhmmss") + ".csv";
+    QString fileName = m_logBaseName + "_" + now.toString("yyyyMMdd-hhmmss") + ".csv";
     QString absPath = QDir(Settings::instance().getLoggingPath()).filePath(fileName);
 
     qDebug() << "Starting to log at" << absPath;

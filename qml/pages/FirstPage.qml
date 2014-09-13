@@ -40,6 +40,7 @@ Page {
                 anchors.horizontalCenter: parent.horizontalCenter
                 text: qsTr("Position")
                 onClicked: pageStack.push(Qt.resolvedUrl("PositionPage.qml"))
+                color: (satelliteinfo.isLogging ? Theme.highlightColor : Theme.primaryColor)
             }
             Button {
                 anchors.horizontalCenter: parent.horizontalCenter

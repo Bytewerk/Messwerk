@@ -196,6 +196,18 @@
         <source>Position</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Stop</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Start</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source> logging</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>RotationPage</name>

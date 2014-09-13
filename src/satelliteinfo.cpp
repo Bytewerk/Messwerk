@@ -1,5 +1,8 @@
 #include <QDateTime>
 #include <QDebug>
+#include <QStringList>
+
+#include "settings.h"
 
 #include "satelliteinfo.h"
 
@@ -23,6 +26,33 @@ void SatelliteInfo::updateMinMax()
     // prevent zero range
     if(m_maxSignal == m_minSignal) {
         m_minSignal -= 1;
+    }
+}
+
+void SatelliteInfo::logData()
+{
+    if(isLogging()) {
+        /* Log file line format:
+         * timestamp<tab>satid:signal:visible,satid:signal:visible,[...]\n
+         */
+        QStringList satInfo;
+
+        for(SatelliteID id: m_satellites.keys()) {
+            QString satPart = QString("%1:%2:%3")
+                                      .arg(id)
+                                      .arg(m_satellites[id].signalStrength)
+                                      .arg((int)m_satellites[id].inUse);
+
+            satInfo.append(satPart);
+        }
+
+        QString dataline = satInfo.join(',');
+
+        QString line = QString("%1\t%2\n")
+                               .arg(QDateTime::currentMSecsSinceEpoch()/1000.0, 0, 'f', 3)
+                               .arg(dataline);
+
+        m_logFile.write(line.toUtf8());
     }
 }
 
@@ -118,6 +148,8 @@ void SatelliteInfo::setSatellitesInView(const QList<QGeoSatelliteInfo> &satellit
 
     updateMinMax();
 
+    logData();
+
     emit newDataAvailable();
 }
 
@@ -155,4 +187,30 @@ void SatelliteInfo::deactivate(unsigned requestingPart)
         m_source->stopUpdates();
         m_sourceActive = false;
     }
+}
+
+void SatelliteInfo::startLogging()
+{
+    activate(Activateable::PART_LOGGING);
+
+    QDateTime now = QDateTime::currentDateTime();
+
+    QString fileName = "satellites_" + now.toString("yyyyMMdd-hhmmss") + ".csv";
+    QString absPath = QDir(Settings::instance().getLoggingPath()).filePath(fileName);
+
+    qDebug() << "Starting to log at" << absPath;
+
+    m_logFile.setFileName(absPath);
+    m_logFile.open(QFile::WriteOnly);
+
+    emit isLoggingChanged(true);
+}
+
+void SatelliteInfo::stopLogging()
+{
+    deactivate(Activateable::PART_LOGGING);
+
+    m_logFile.close();
+
+    emit isLoggingChanged(false);
 }

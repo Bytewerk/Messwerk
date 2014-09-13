@@ -37,6 +37,21 @@ Page {
         // Tell SilicaFlickable the height of its content.
         contentHeight: column.height
 
+        PullDownMenu {
+            MenuItem {
+                function toggleLogging() {
+                    if(satelliteinfo.isLogging) {
+                        satelliteinfo.stopLogging();
+                    } else {
+                        satelliteinfo.startLogging();
+                    }
+                }
+
+                text: (satelliteinfo.isLogging ? qsTr("Stop") : qsTr("Start")) + qsTr(" logging")
+                onClicked: toggleLogging()
+            }
+        }
+
         // Place our content in a Column.  The PageHeader is always placed at the top
         // of the page, followed by our content.
         Column {
