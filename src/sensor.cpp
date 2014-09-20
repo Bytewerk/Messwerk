@@ -2,11 +2,26 @@
 #include <QDateTime>
 
 #include "settings.h"
+#include "wakelock.h"
 
 #include "sensor.h"
 
-Sensor::Sensor(QObject *parent) :
-    QObject(parent), m_sensor(NULL)
+
+unsigned Sensor::sensorTypeToWakeLockPart(Sensor::Type type)
+{
+    switch(type) {
+        case Accelerometer: return WakeLock::PART_ACCELEROMETER;
+        case Gyroscope:     return WakeLock::PART_GYROSCOPE;
+        case Magnetometer:  return WakeLock::PART_MAGNETOMETER;
+        case Rotation:      return WakeLock::PART_ROTATION;
+        case Light:         return WakeLock::PART_LIGHT;
+        case Proximity:     return WakeLock::PART_PROXIMITY;
+        default:            return 0;
+    }
+}
+
+Sensor::Sensor(Sensor::Type type, QObject *parent) :
+    QObject(parent), m_sensor(NULL), m_type(type)
 {
 }
 
@@ -19,7 +34,16 @@ void Sensor::activate(unsigned requestingPart)
 
     if(!m_sensor->isActive()) {
         qDebug() << "Sensor started";
+        m_sensor->setAlwaysOn(true);
         m_sensor->start();
+    }
+
+    if(requestingPart == PART_PAGE) {
+        WakeLock::instance().activateScreenLock(sensorTypeToWakeLockPart(m_type));
+    }
+
+    if(requestingPart == PART_LOGGING) {
+        WakeLock::instance().activateBackground(sensorTypeToWakeLockPart(m_type));
     }
 }
 
@@ -33,6 +57,14 @@ void Sensor::deactivate(unsigned requestingPart)
     if(!(this->isActive()) && m_sensor->isActive()) {
         qDebug() << "Sensor stopped";
         m_sensor->stop();
+    }
+
+    if(requestingPart == PART_PAGE) {
+        WakeLock::instance().deactivateScreenLock(sensorTypeToWakeLockPart(m_type));
+    }
+
+    if(requestingPart == PART_LOGGING) {
+        WakeLock::instance().deactivateBackground(sensorTypeToWakeLockPart(m_type));
     }
 }
 

@@ -7,7 +7,7 @@
 
 
 Rotation::Rotation(bool updateInternally, QObject *parent)
-    : Sensor(parent)
+    : Sensor(Sensor::Rotation, parent)
 {
     m_sensor = new QRotationSensor(this);
     m_logBaseName = "rotation";

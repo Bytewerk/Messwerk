@@ -253,5 +253,13 @@
         <source>Path for sensor logs</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Prevent display blanking</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Prevents display blanking on sensor plotting pages</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 </TS>

@@ -4,7 +4,7 @@
 
 
 Proximity::Proximity(bool updateInternally, QObject *parent)
-    : Sensor(parent)
+    : Sensor(Sensor::Proximity, parent)
 {
     m_sensor = new QProximitySensor(this);
     m_logBaseName = "proximity";

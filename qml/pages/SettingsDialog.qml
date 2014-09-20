@@ -7,6 +7,7 @@ Dialog {
 
     onAccepted: {
         settings.loggingPath = loggingPath.text;
+        settings.preventDisplayBlanking = preventDisplayBlanking
     }
 
 
@@ -31,10 +32,12 @@ Dialog {
             text: settings.loggingPath
             label: qsTr("Path for sensor logs")
         }
+
+        TextSwitch {
+            id: preventDisplayBlanking
+            text: qsTr("Prevent display blanking")
+            description: qsTr("Prevents display blanking on sensor plotting pages")
+            checked: settings.preventDisplayBlanking
+        }
     }
 }
-
-
-
-
-

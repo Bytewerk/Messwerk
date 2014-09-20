@@ -7,7 +7,7 @@
 
 
 Accelerometer::Accelerometer(bool updateInternally, QObject *parent)
-    : Sensor(parent)
+    : Sensor(Sensor::Accelerometer, parent)
 {
     m_sensor = new QAccelerometer(this);
     m_logBaseName = "accelerometer";

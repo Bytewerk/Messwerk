@@ -4,7 +4,7 @@
 
 
 Light::Light(bool updateInternally, QObject *parent)
-    : Sensor(parent)
+    : Sensor(Sensor::Light, parent)
 {
     m_sensor = new QLightSensor(this);
     m_logBaseName = "light";

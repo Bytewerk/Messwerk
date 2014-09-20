@@ -6,7 +6,7 @@
 
 
 Magnetometer::Magnetometer(bool updateInternally, QObject *parent)
-    : Sensor(parent)
+    : Sensor(Sensor::Magnetometer, parent)
 {
     m_sensor = new QMagnetometer(this);
     m_logBaseName = "magnetometer";

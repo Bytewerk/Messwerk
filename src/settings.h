@@ -9,6 +9,7 @@ class Settings : public QObject
     Q_OBJECT
 
     Q_PROPERTY(QString loggingPath READ getLoggingPath WRITE setLoggingPath NOTIFY loggingPathChanged)
+    Q_PROPERTY(bool preventDisplayBlanking READ getPreventDisplayBlanking WRITE setPreventDisplayBlanking NOTIFY preventDisplayBlankingChanged)
 private:
     QSettings *m_settings;
 
@@ -24,6 +25,7 @@ public:
     }
 
     QString getLoggingPath(void) { return m_settings->value("LoggingPath", QDir::home().absolutePath()).toString(); }
+    bool getPreventDisplayBlanking(void) { return m_settings->value("PreventDisplayBlanking", false).toBool(); }
 
 public slots:
     void setLoggingPath(const QString &path)
@@ -32,8 +34,15 @@ public slots:
         emit loggingPathChanged(path);
     }
 
+    void setPreventDisplayBlanking(bool prevent)
+    {
+        m_settings->setValue("PreventDisplayBlanking", prevent);
+        emit preventDisplayBlankingChanged(prevent);
+    }
+
 signals:
     void loggingPathChanged(const QString &newPath);
+    void preventDisplayBlankingChanged(bool prevented);
 };
 
 #endif // SETTINGS_H

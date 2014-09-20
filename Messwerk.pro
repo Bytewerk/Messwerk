@@ -18,6 +18,8 @@ QT += sensors positioning
 QMAKE_CXXFLAGS += -std=c++0x
 QMAKE_LFLAGS += -std=c++0x
 
+LIBS += -lkeepalive
+
 SOURCES += src/Messwerk.cpp \
     src/accelerometer.cpp \
     src/gyroscope.cpp \
@@ -31,7 +33,8 @@ SOURCES += src/Messwerk.cpp \
     src/satelliteinfo.cpp \
     src/activateable.cpp \
     src/satellitestrengthwidget.cpp \
-    src/settings.cpp
+    src/settings.cpp \
+    src/wakelock.cpp
 
 OTHER_FILES += qml/Messwerk.qml \
     qml/cover/CoverPage.qml \
@@ -70,4 +73,5 @@ HEADERS += \
     src/satelliteinfo.h \
     src/activateable.h \
     src/satellitestrengthwidget.h \
-    src/settings.h
+    src/settings.h \
+    src/wakelock.h

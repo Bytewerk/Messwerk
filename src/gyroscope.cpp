@@ -6,7 +6,7 @@
 
 
 Gyroscope::Gyroscope(bool updateInternally, QObject *parent)
-    : Sensor(parent)
+    : Sensor(Sensor::Gyroscope, parent)
 {
     m_sensor = new QGyroscope(this);
     m_logBaseName = "gyroscope";
