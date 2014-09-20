@@ -8,8 +8,6 @@
 # * date Author's Name <author's email> version-release
 # - Summary of changes
 
-* Sun Apr 13 2014 Jack Tar <jack.tar@example.com> 0.0.1-1
-- Scrubbed the deck
-- Hoisted the sails
-
-
+* Sat Sep 20 2014 Thomas Kolb <cfr34k-sailfishos@tkolb.de> 0.2.0-1
+- Implemented data logging for all sensors
+- Display blanking can be prevented on sensor logging

@@ -13,7 +13,7 @@ Name:       Messwerk
 %{!?qtc_make:%define qtc_make make}
 %{?qtc_builddir:%define _builddir %qtc_builddir}
 Summary:    Messwerk
-Version:    0.1
+Version:    0.2
 Release:    1
 Group:      Qt/Qt
 License:    LICENSE
@@ -25,10 +25,13 @@ BuildRequires:  pkgconfig(sailfishapp) >= 1.0.2
 BuildRequires:  pkgconfig(Qt5Core)
 BuildRequires:  pkgconfig(Qt5Qml)
 BuildRequires:  pkgconfig(Qt5Quick)
+BuildRequires:  pkgconfig(Qt5Sensors)
+BuildRequires:  pkgconfig(Qt5Positioning)
+BuildRequires:  pkgconfig(keepalive)
 BuildRequires:  desktop-file-utils
 
 %description
-Short description of my SailfishOS Application
+A SailfishOS Application for reading Sensors
 
 
 %prep
