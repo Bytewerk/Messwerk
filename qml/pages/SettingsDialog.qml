@@ -7,7 +7,7 @@ Dialog {
 
     onAccepted: {
         settings.loggingPath = loggingPath.text;
-        settings.preventDisplayBlanking = preventDisplayBlanking
+        settings.preventDisplayBlanking = preventDisplayBlanking.checked;
     }
 
 

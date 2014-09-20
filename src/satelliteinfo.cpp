@@ -3,6 +3,7 @@
 #include <QStringList>
 
 #include "settings.h"
+#include "wakelock.h"
 
 #include "satelliteinfo.h"
 
@@ -175,6 +176,14 @@ void SatelliteInfo::activate(unsigned requestingPart)
         m_source->startUpdates();
         m_sourceActive = true;
     }
+
+    if(requestingPart == PART_PAGE) {
+        WakeLock::instance().activateScreenLock(WakeLock::PART_SATELLITES);
+    }
+
+    if(requestingPart == PART_LOGGING) {
+        WakeLock::instance().activateBackground(WakeLock::PART_SATELLITES);
+    }
 }
 
 void SatelliteInfo::deactivate(unsigned requestingPart)
@@ -186,6 +195,14 @@ void SatelliteInfo::deactivate(unsigned requestingPart)
         qDebug() << "Satellite info source stopped";
         m_source->stopUpdates();
         m_sourceActive = false;
+    }
+
+    if(requestingPart == PART_PAGE) {
+        WakeLock::instance().deactivateScreenLock(WakeLock::PART_SATELLITES);
+    }
+
+    if(requestingPart == PART_LOGGING) {
+        WakeLock::instance().deactivateBackground(WakeLock::PART_SATELLITES);
     }
 }
 
