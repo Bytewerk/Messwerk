@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.0">
+<TS version="2.1" language="de_DE" sourcelanguage="en_US">
 <context>
     <name>AccelPage</name>
     <message>
         <source>Accelerometer</source>
-        <translation type="unfinished"></translation>
+        <translation>Beschleunigugssensor</translation>
     </message>
 </context>
 <context>
@@ -16,7 +16,7 @@
     </message>
     <message>
         <source>Messwerk</source>
-        <translation type="unfinished"></translation>
+        <translation>Messwerk</translation>
     </message>
 </context>
 <context>
@@ -39,109 +39,109 @@
     </message>
     <message>
         <source>Position</source>
-        <translation type="unfinished"></translation>
+        <translation>Position</translation>
     </message>
     <message>
         <source>Info</source>
-        <translation type="unfinished"></translation>
+        <translation>Info</translation>
     </message>
     <message>
         <source>Magnetometer</source>
-        <translation type="unfinished"></translation>
+        <translation>Magnetsensor</translation>
     </message>
     <message>
         <source>Gyroscope</source>
-        <translation type="unfinished"></translation>
+        <translation>Lagesensor</translation>
     </message>
     <message>
         <source>Rotation</source>
-        <translation type="unfinished"></translation>
+        <translation>Rotationssensor</translation>
     </message>
     <message>
         <source>Light &amp; Proximity</source>
-        <translation type="unfinished"></translation>
+        <translation>Licht- &amp; Annäherung</translation>
     </message>
     <message>
         <source>Accelerometer</source>
-        <translation type="unfinished"></translation>
+        <translation>Beschleunigugssensor</translation>
     </message>
 </context>
 <context>
     <name>GyroPage</name>
     <message>
         <source>Gyroscope</source>
-        <translation type="unfinished"></translation>
+        <translation>Lagesensor</translation>
     </message>
 </context>
 <context>
     <name>InfoPage</name>
     <message>
         <source>Info</source>
-        <translation type="unfinished"></translation>
+        <translation>Info</translation>
     </message>
     <message>
         <source>Created by bytewerk��� Software Inc.</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <source>Coding: cfr34k</source>
-        <translation type="unfinished"></translation>
+        <translation>Programmierung: cfr34k</translation>
     </message>
     <message>
         <source>Quality assurance: sqozz</source>
-        <translation type="unfinished"></translation>
+        <translation>Qualitätssicherung</translation>
     </message>
     <message>
         <source>Art &amp; Design: sqozz, cfr34k</source>
-        <translation type="unfinished"></translation>
+        <translation>Art &amp; Design: sqozz, cfr34k</translation>
     </message>
     <message>
         <source>source code</source>
-        <translation type="unfinished"></translation>
+        <translation>Quelltext</translation>
     </message>
     <message>
         <source>Send beer, pizza and Club Mate to</source>
-        <translation type="unfinished"></translation>
+        <translation>Sende Bier, Pizza und Club Mate zu</translation>
     </message>
 </context>
 <context>
     <name>LightPage</name>
     <message>
         <source>Light &amp; Proximity</source>
-        <translation type="unfinished"></translation>
+        <translation>Licht- &amp; Annäherung</translation>
     </message>
     <message>
         <source>Brightness</source>
-        <translation type="unfinished"></translation>
+        <translation>Helligkeit</translation>
     </message>
     <message>
         <source>Proximity</source>
-        <translation type="unfinished"></translation>
+        <translation>Annäherung</translation>
     </message>
     <message>
         <source>Proximity detected</source>
-        <translation type="unfinished"></translation>
+        <translation>Annäherung entdeckt</translation>
     </message>
 </context>
 <context>
     <name>MagnetPage</name>
     <message>
         <source>Magnetometer</source>
-        <translation type="unfinished"></translation>
+        <translation>Magnetsensor</translation>
     </message>
 </context>
 <context>
     <name>PositionPage</name>
     <message>
         <source>Position</source>
-        <translation type="unfinished"></translation>
+        <translation>Position</translation>
     </message>
 </context>
 <context>
     <name>RotationPage</name>
     <message>
         <source>Rotation</source>
-        <translation type="unfinished"></translation>
+        <translation>Rotation</translation>
     </message>
 </context>
 <context>
