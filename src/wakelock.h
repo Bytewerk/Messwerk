@@ -25,6 +25,7 @@ public:
     static const unsigned PART_LIGHT         = (1 << 4);
     static const unsigned PART_PROXIMITY     = (1 << 5);
     static const unsigned PART_SATELLITES    = (1 << 6);
+    static const unsigned PART_POSITION      = (1 << 7);
 
     ~WakeLock();
 

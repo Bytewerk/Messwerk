@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.0">
+<TS version="2.1">
 <context>
     <name>AccelPage</name>
     <message>
@@ -34,10 +34,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Position</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Accelerometer</source>
         <translation type="unfinished"></translation>
     </message>
@@ -63,6 +59,14 @@
     </message>
     <message>
         <source>Settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>GNSS Satellites</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Position</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -92,10 +96,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Created by bytewerk��� Software Inc.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Coding: cfr34k</source>
         <translation type="unfinished"></translation>
     </message>
@@ -113,6 +113,10 @@
     </message>
     <message>
         <source>Send beer, pizza and Club Mate to</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Created by bytewerk™ Software Inc.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -177,10 +181,6 @@
 <context>
     <name>PositionPage</name>
     <message>
-        <source>Position</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Stop</source>
         <translation type="unfinished"></translation>
     </message>
@@ -190,6 +190,54 @@
     </message>
     <message>
         <source> logging</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Position</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>WGS84 Coordinates</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Latitude: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Longitude: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Altitude: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Maidenhead Locator</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Position: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Fix: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Accuracy</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Horizontal: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Vertical: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Grid: </source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -209,6 +257,25 @@
     </message>
     <message>
         <source> logging</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>SatellitePage</name>
+    <message>
+        <source>Stop</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Start</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source> logging</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Position</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

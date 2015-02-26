@@ -19,6 +19,7 @@
 #include "light.h"
 #include "proximity.h"
 #include "satelliteinfo.h"
+#include "position.h"
 
 #include "settings.h"
 
@@ -47,6 +48,7 @@ int main(int argc, char *argv[])
     Light light(false);
     Proximity proximity(true);
     SatelliteInfo satelliteinfo;
+    Position position;
 
     // connect not self-refreshing sensors to the global timer
     QObject::connect(&refreshTimer, SIGNAL(timeout()), &accelerometer, SLOT(refresh()));
@@ -63,6 +65,7 @@ int main(int argc, char *argv[])
     view->rootContext()->setContextProperty("lightsensor", &light);
     view->rootContext()->setContextProperty("proximitysensor", &proximity);
     view->rootContext()->setContextProperty("satelliteinfo", &satelliteinfo);
+    view->rootContext()->setContextProperty("positionsensor", &position);
     view->rootContext()->setContextProperty("settings", &(Settings::instance()));
     view->setSource(SailfishApp::pathTo(qml));
     view->show();

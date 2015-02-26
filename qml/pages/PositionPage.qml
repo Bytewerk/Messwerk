@@ -7,27 +7,43 @@ import "../Constants.js" as Constants
 Page {
     id: page
 
-    function updateSkyPlot() {
-        skyPlot.northDirection = rotationsensor.rz;
-        skyPlot.update();
+    function formatCoordinate(n) {
+        return '<b>' + n.toFixed(6) + ' °</b>';
+    }
+
+    function formatAltitude(n) {
+        if(n < 0) {
+            return '<b>N/A</b>';
+        } else {
+            return '<b>' + n.toFixed(2) + ' m</b>';
+        }
+    }
+
+    function formatAccuracy(n) {
+        return '<b>' + n.toFixed(2) + ' m</b>';
+    }
+
+    function formatFix(n) {
+        switch(n) {
+            case Constants.COORD_2D:
+                return '<b>2D</b>';
+
+            case Constants.COORD_3D:
+                return '<b>3D</b>';
+
+            case Constants.COORD_INVALID:
+                return '<b>None</b>';
+
+            default:
+                return '<b>Unknown</b>';
+        };
     }
 
     Component.onCompleted: {
-        skyPlot.setSatelliteInfo(satelliteinfo);
-        strengthPlot.setSatelliteInfo(satelliteinfo);
-        satelliteinfo.newDataAvailable.connect(skyPlot.update)
-        satelliteinfo.newDataAvailable.connect(strengthPlot.update)
-        satelliteinfo.activate(Constants.PART_PAGE);
-        rotationsensor.activate(Constants.PART_PAGE)
-        rotationsensor.rzChanged.connect(updateSkyPlot);
+        positionsensor.activate(Constants.PART_PAGE);
     }
-
     Component.onDestruction: {
-        rotationsensor.rzChanged.disconnect(updateSkyPlot);
-        satelliteinfo.deactivate(Constants.PART_PAGE);
-        rotationsensor.deactivate(Constants.PART_PAGE);
-        satelliteinfo.newDataAvailable.disconnect(skyPlot.update)
-        satelliteinfo.newDataAvailable.disconnect(strengthPlot.update)
+        positionsensor.deactivate(Constants.PART_PAGE);
     }
 
     // To enable PullDownMenu, place our content in a SilicaFlickable
@@ -39,16 +55,16 @@ Page {
 
         PullDownMenu {
             MenuItem {
-                function toggleLogging() {
-                    if(satelliteinfo.isLogging) {
-                        satelliteinfo.stopLogging();
+                function togglePositionLogging() {
+                    if(positionsensor.isLogging) {
+                        positionsensor.stopLogging();
                     } else {
-                        satelliteinfo.startLogging();
+                        positionsensor.startLogging();
                     }
                 }
 
-                text: (satelliteinfo.isLogging ? qsTr("Stop") : qsTr("Start")) + qsTr(" logging")
-                onClicked: toggleLogging()
+                text: qsTr("Position: ") + (positionsensor.isLogging ? qsTr("Stop") : qsTr("Start")) + qsTr(" logging")
+                onClicked: togglePositionLogging()
             }
         }
 
@@ -60,26 +76,81 @@ Page {
             width: page.width
             spacing: Theme.paddingLarge
 
-
             PageHeader {
                 title: qsTr("Position")
             }
-            SatellitePosWidget {
-                id: skyPlot
-                width: parent.width
-                height: parent.width
-                visibleColor: Theme.primaryColor
-                usedColor: Theme.highlightColor
-                scaleColor: Theme.secondaryColor
-                northColor: Theme.secondaryHighlightColor
+            SectionHeader {
+                text: qsTr("WGS84 Coordinates")
             }
-            SatelliteStrengthWidget {
-                id: strengthPlot
+            Column {
                 width: parent.width
-                height: 200
-                visibleColor: Theme.primaryColor
-                usedColor: Theme.highlightColor
-                scaleColor: Theme.secondaryColor
+                spacing: Theme.paddingSmall
+
+                Label {
+                    id: fixlabel
+                    font.pixelSize: Theme.fontSizeLarge
+                    anchors.right: parent.right
+                    anchors.rightMargin: Theme.paddingLarge
+                    text: qsTr('Fix: ') + page.formatFix(positionsensor.coordType)
+                }
+                Label {
+                    id: latlabel
+                    font.pixelSize: Theme.fontSizeLarge
+                    anchors.right: parent.right
+                    anchors.rightMargin: Theme.paddingLarge
+                    text: qsTr('Latitude: ') + page.formatCoordinate(positionsensor.latitude)
+                }
+                Label {
+                    id: lonlabel
+                    font.pixelSize: Theme.fontSizeLarge
+                    anchors.right: parent.right
+                    anchors.rightMargin: Theme.paddingLarge
+                    text: qsTr('Longitude: ') + page.formatCoordinate(positionsensor.longitude)
+                }
+                Label {
+                    id: altlabel
+                    font.pixelSize: Theme.fontSizeLarge
+                    anchors.right: parent.right
+                    anchors.rightMargin: Theme.paddingLarge
+                    text: qsTr('Altitude: ') + page.formatAltitude(positionsensor.altitude)
+                }
+            }
+            SectionHeader {
+                text: qsTr("Accuracy")
+            }
+            Column {
+                width: parent.width
+                spacing: Theme.paddingSmall
+
+                Label {
+                    id: horzAccLabel
+                    font.pixelSize: Theme.fontSizeLarge
+                    anchors.right: parent.right
+                    anchors.rightMargin: Theme.paddingLarge
+                    text: qsTr('Horizontal: ') + page.formatAccuracy(positionsensor.horzAccuracy)
+                }
+                Label {
+                    id: vertAccLabel
+                    font.pixelSize: Theme.fontSizeLarge
+                    anchors.right: parent.right
+                    anchors.rightMargin: Theme.paddingLarge
+                    text: qsTr('Vertical: ') + page.formatAccuracy(positionsensor.vertAccuracy)
+                }
+            }
+            SectionHeader {
+                text: qsTr("Maidenhead Locator")
+            }
+            Column {
+                width: parent.width
+                spacing: Theme.paddingSmall
+
+                Label {
+                    id: locatorLabel
+                    font.pixelSize: Theme.fontSizeLarge
+                    anchors.right: parent.right
+                    anchors.rightMargin: Theme.paddingLarge
+                    text: qsTr('Grid: ') + '<b>' + positionsensor.maidenhead + '</b>'
+                }
             }
         }
     }

@@ -34,7 +34,8 @@ SOURCES += src/Messwerk.cpp \
     src/activateable.cpp \
     src/satellitestrengthwidget.cpp \
     src/settings.cpp \
-    src/wakelock.cpp
+    src/wakelock.cpp \
+    src/position.cpp
 
 OTHER_FILES += qml/Messwerk.qml \
     qml/cover/CoverPage.qml \
@@ -45,7 +46,6 @@ OTHER_FILES += qml/Messwerk.qml \
     translations/*.ts \
     Messwerk.desktop \
     qml/pages/InfoPage.qml \
-    qml/pages/PositionPage.qml \
     qml/pages/MagnetPage.qml \
     qml/pages/LightPage.qml \
     qml/pages/GyroPage.qml \
@@ -53,7 +53,9 @@ OTHER_FILES += qml/Messwerk.qml \
     qml/Constants.js \
     qml/pages/PlotTestPage.qml \
     qml/pages/RotationPage.qml \
-    qml/pages/SettingsDialog.qml
+    qml/pages/SettingsDialog.qml \
+    qml/pages/SatellitePage.qml \
+    qml/pages/PositionPage.qml
 
 # to disable building translations every time, comment out the
 # following CONFIG line
@@ -74,4 +76,5 @@ HEADERS += \
     src/activateable.h \
     src/satellitestrengthwidget.h \
     src/settings.h \
-    src/wakelock.h
+    src/wakelock.h \
+    src/position.h

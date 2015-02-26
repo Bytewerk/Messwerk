@@ -44,6 +44,12 @@ Page {
             }
             Button {
                 anchors.horizontalCenter: parent.horizontalCenter
+                text: qsTr("GNSS Satellites")
+                onClicked: pageStack.push(Qt.resolvedUrl("SatellitePage.qml"))
+                color: (satelliteinfo.isLogging ? Theme.highlightColor : Theme.primaryColor)
+            }
+            Button {
+                anchors.horizontalCenter: parent.horizontalCenter
                 text: qsTr("Rotation")
                 onClicked: pageStack.push(Qt.resolvedUrl("RotationPage.qml"))
                 color: (rotationsensor.isLogging ? Theme.highlightColor : Theme.primaryColor)
