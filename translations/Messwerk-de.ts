@@ -197,6 +197,14 @@
 <context>
     <name>PositionPage</name>
     <message>
+        <source>decimal</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Position: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Stop</source>
         <translation type="unfinished"></translation>
     </message>
@@ -217,6 +225,10 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Fix: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Latitude: </source>
         <translation type="unfinished"></translation>
     </message>
@@ -226,18 +238,6 @@
     </message>
     <message>
         <source>Altitude: </source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Maidenhead Locator</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Position: </source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Fix: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -253,7 +253,19 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Maidenhead Locator</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Grid: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Coordinate format: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>deg./min./sec.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

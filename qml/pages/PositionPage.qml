@@ -7,12 +7,43 @@ import "../Constants.js" as Constants
 Page {
     id: page
 
-    function formatCoordinate(n) {
-        return '<b>' + n.toFixed(6) + ' °</b>';
+    property bool decimalCoord: true;
+
+    function formatCoordinate(n, isLon) {
+        if(decimalCoord) {
+            return '<b>' + n.toFixed(6) + ' °</b>';
+        } else {
+            var coordText = "";
+
+            var absn = Math.abs(n);
+            var deg = Math.floor(absn);
+            var min = Math.floor(absn * 60) % 60;
+            var sec = Math.floor(absn * 3600) % 60;
+
+            coordText  = deg + "° ";
+            coordText += min + "' ";
+            coordText += sec + "\" ";
+
+            if(isLon) { // longitude: east/west
+                if(n >= 0) {
+                    coordText += "E";
+                } else {
+                    coordText += "W";
+                }
+            } else { // latitude: north/south
+                if(n >= 0) {
+                    coordText += "N";
+                } else {
+                    coordText += "S";
+                }
+            }
+
+            return '<b>' + coordText + '</b>';
+        }
     }
 
     function formatAltitude(n) {
-        if(n < 0) {
+        if(!isFinite(n)) {
             return '<b>N/A</b>';
         } else {
             return '<b>' + n.toFixed(2) + ' m</b>';
@@ -20,7 +51,11 @@ Page {
     }
 
     function formatAccuracy(n) {
-        return '<b>' + n.toFixed(2) + ' m</b>';
+        if(n < 0) {
+            return '<b>N/A</b>';
+        } else {
+            return '<b>' + n.toFixed(2) + ' m</b>';
+        }
     }
 
     function formatFix(n) {
@@ -54,6 +89,14 @@ Page {
         contentHeight: column.height
 
         PullDownMenu {
+            MenuItem {
+                function nextCoordFormat() {
+                    decimalCoord = !decimalCoord;
+                }
+
+                text: qsTr("Coordinate format: ") + (decimalCoord ? qsTr("deg./min./sec.") : qsTr("decimal"))
+                onClicked: nextCoordFormat()
+            }
             MenuItem {
                 function togglePositionLogging() {
                     if(positionsensor.isLogging) {
@@ -98,14 +141,14 @@ Page {
                     font.pixelSize: Theme.fontSizeLarge
                     anchors.right: parent.right
                     anchors.rightMargin: Theme.paddingLarge
-                    text: qsTr('Latitude: ') + page.formatCoordinate(positionsensor.latitude)
+                    text: qsTr('Latitude: ') + page.formatCoordinate(positionsensor.latitude, false)
                 }
                 Label {
                     id: lonlabel
                     font.pixelSize: Theme.fontSizeLarge
                     anchors.right: parent.right
                     anchors.rightMargin: Theme.paddingLarge
-                    text: qsTr('Longitude: ') + page.formatCoordinate(positionsensor.longitude)
+                    text: qsTr('Longitude: ') + page.formatCoordinate(positionsensor.longitude, true)
                 }
                 Label {
                     id: altlabel
