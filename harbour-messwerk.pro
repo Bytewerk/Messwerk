@@ -18,8 +18,6 @@ QT += sensors positioning
 QMAKE_CXXFLAGS += -std=c++0x
 QMAKE_LFLAGS += -std=c++0x
 
-LIBS += -lkeepalive
-
 SOURCES += src/Messwerk.cpp \
     src/accelerometer.cpp \
     src/gyroscope.cpp \
@@ -78,3 +76,8 @@ HEADERS += \
     src/settings.h \
     src/wakelock.h \
     src/position.h
+
+# use this for harbour-compliant builds:
+DEFINES += FOR_HARBOUR
+# and this for all features
+#LIBS += -lkeepalive

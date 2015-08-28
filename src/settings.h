@@ -10,6 +10,9 @@ class Settings : public QObject
 
     Q_PROPERTY(QString loggingPath READ getLoggingPath WRITE setLoggingPath NOTIFY loggingPathChanged)
     Q_PROPERTY(bool preventDisplayBlanking READ getPreventDisplayBlanking WRITE setPreventDisplayBlanking NOTIFY preventDisplayBlankingChanged)
+
+    // The following property allows QML to check wether the Jolla Harbour version is currently running, which has less features due to banned libraries
+    Q_PROPERTY(bool isHarbourVersion READ getIsHarbourVersion)
 private:
     QSettings *m_settings;
 
@@ -26,6 +29,15 @@ public:
 
     QString getLoggingPath(void) { return m_settings->value("LoggingPath", QDir::home().absolutePath()).toString(); }
     bool getPreventDisplayBlanking(void) { return m_settings->value("PreventDisplayBlanking", false).toBool(); }
+
+    bool getIsHarbourVersion(void)
+    {
+#ifdef FOR_HARBOUR
+        return true;
+#else
+        return false;
+#endif
+    }
 
 public slots:
     void setLoggingPath(const QString &path)

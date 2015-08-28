@@ -38,6 +38,7 @@ Dialog {
             text: qsTr("Prevent display blanking")
             description: qsTr("Prevents display blanking on sensor plotting pages")
             checked: settings.preventDisplayBlanking
+            enabled: !settings.isHarbourVersion
         }
     }
 }

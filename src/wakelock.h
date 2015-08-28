@@ -1,8 +1,12 @@
 #ifndef WAKELOCK_H
 #define WAKELOCK_H
 
+#include <QObject>
+
+#ifndef FOR_HARBOUR
 #include <keepalive/backgroundactivity.h>
 #include <keepalive/displayblanking.h>
+#endif
 
 class WakeLock : public QObject
 {
@@ -12,8 +16,10 @@ private:
     unsigned m_backgroundParts;
     unsigned m_screenLockParts;
 
+#ifndef FOR_HARBOUR
     BackgroundActivity *m_backgroundActivity;
     DisplayBlanking    *m_displayBlanking;
+#endif
 
     WakeLock(void);
 
