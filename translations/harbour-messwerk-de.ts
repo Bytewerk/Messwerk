@@ -112,18 +112,6 @@
         <translation>Über</translation>
     </message>
     <message>
-        <source>Coding: cfr34k</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Quality assurance: sqozz</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Art &amp; Design: sqozz, cfr34k</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>source code</source>
         <translation>Quelltext</translation>
     </message>
@@ -133,7 +121,27 @@
     </message>
     <message>
         <source>Created by bytewerk™ Software Inc.</source>
+        <translation>Erstellt durch bytewerk™ Software Inc.</translation>
+    </message>
+    <message>
+        <source>Credits</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Coding: </source>
+        <translation>Programmierung: </translation>
+    </message>
+    <message>
+        <source>Quality assurance: </source>
+        <translation>Qualitätssicherung: </translation>
+    </message>
+    <message>
+        <source>Art &amp; Design: </source>
+        <translation>Design: </translation>
+    </message>
+    <message>
+        <source>Translations: </source>
+        <translation>Übersetzungen: </translation>
     </message>
 </context>
 <context>
@@ -198,7 +206,7 @@
     <name>PositionPage</name>
     <message>
         <source>decimal</source>
-        <translation type="unfinished"></translation>
+        <translation>dezimal</translation>
     </message>
     <message>
         <source>Position: </source>

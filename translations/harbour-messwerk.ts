@@ -131,18 +131,28 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../qml/pages/InfoPage.qml" line="41"/>
+        <source>Credits</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../qml/pages/InfoPage.qml" line="45"/>
-        <source>Coding: cfr34k</source>
+        <source>Coding: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../qml/pages/InfoPage.qml" line="49"/>
-        <source>Quality assurance: sqozz</source>
+        <source>Quality assurance: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../qml/pages/InfoPage.qml" line="53"/>
-        <source>Art &amp; Design: sqozz, cfr34k</source>
+        <source>Art &amp; Design: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/InfoPage.qml" line="58"/>
+        <source>Translations: </source>
         <translation type="unfinished"></translation>
     </message>
 </context>

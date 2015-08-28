@@ -38,19 +38,24 @@ Page {
                 onClicked: Qt.openUrlExternally("https://github.com/Bytewerk/Messwerk")
             }
             SectionHeader {
-                text: "Credits"
+                text: qsTr("Credits")
             }
             Label {
                 anchors.horizontalCenter: parent.horizontalCenter
-                text: qsTr("Coding: cfr34k")
+                text: qsTr("Coding: ") + "cfr34k"
             }
             Label {
                 anchors.horizontalCenter: parent.horizontalCenter
-                text: qsTr("Quality assurance: sqozz")
+                text: qsTr("Quality assurance: ") + "sqozz"
             }
             Label {
                 anchors.horizontalCenter: parent.horizontalCenter
-                text: qsTr("Art & Design: sqozz, cfr34k")
+                text: qsTr("Art & Design: ") + "sqozz, cfr34k"
+            }
+
+            Label {
+                anchors.horizontalCenter: parent.horizontalCenter
+                text: qsTr("Translations: ") + "sqozz, cfr34k"
             }
         }
     }
