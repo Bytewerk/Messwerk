@@ -10,7 +10,7 @@
 #   - translation filenames have to be changed
 
 # The name of your application
-TARGET = Messwerk
+TARGET = harbour-messwerk
 
 CONFIG += sailfishapp
 QT += sensors positioning
@@ -40,11 +40,11 @@ SOURCES += src/Messwerk.cpp \
 OTHER_FILES += qml/Messwerk.qml \
     qml/cover/CoverPage.qml \
     qml/pages/FirstPage.qml \
-    rpm/Messwerk.changes.in \
-    rpm/Messwerk.spec \
-    rpm/Messwerk.yaml \
+    rpm/harbour-messwerk.changes.in \
+    rpm/harbour-messwerk.spec \
+    rpm/harbour-messwerk.yaml \
     translations/*.ts \
-    Messwerk.desktop \
+    harbour-messwerk.desktop \
     qml/pages/InfoPage.qml \
     qml/pages/MagnetPage.qml \
     qml/pages/LightPage.qml \

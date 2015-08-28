@@ -40,7 +40,7 @@ CoverBackground {
 
         Image {
             anchors.horizontalCenter: parent.horizontalCenter
-            source: Qt.resolvedUrl("/usr/share/icons/hicolor/86x86/apps/Messwerk.png")
+            source: Qt.resolvedUrl("/usr/share/icons/hicolor/86x86/apps/harbour-messwerk.png")
         }
 
         Label {
