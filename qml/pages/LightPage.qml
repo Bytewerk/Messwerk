@@ -1,6 +1,6 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
-import MesswerkWidgets 1.0
+import harbour.messwerk.MesswerkWidgets 1.0
 
 import "../Constants.js" as Constants
 

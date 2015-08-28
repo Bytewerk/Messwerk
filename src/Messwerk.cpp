@@ -35,9 +35,9 @@ int main(int argc, char *argv[])
     QGuiApplication *app = SailfishApp::application(argc, argv);
     QQuickView *view = SailfishApp::createView();
 
-    qmlRegisterType<PlotWidget>("MesswerkWidgets", 1, 0, "PlotWidget");
-    qmlRegisterType<SatellitePosWidget>("MesswerkWidgets", 1, 0, "SatellitePosWidget");
-    qmlRegisterType<SatelliteStrengthWidget>("MesswerkWidgets", 1, 0, "SatelliteStrengthWidget");
+    qmlRegisterType<PlotWidget>("harbour.messwerk.MesswerkWidgets", 1, 0, "PlotWidget");
+    qmlRegisterType<SatellitePosWidget>("harbour.messwerk.MesswerkWidgets", 1, 0, "SatellitePosWidget");
+    qmlRegisterType<SatelliteStrengthWidget>("harbour.messwerk.MesswerkWidgets", 1, 0, "SatelliteStrengthWidget");
 
     QTimer refreshTimer;
 
