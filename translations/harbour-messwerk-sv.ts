@@ -139,6 +139,10 @@
         <translation>Ljus</translation>
     </message>
     <message>
+        <source>Brightness: </source>
+        <translation>Ljus: </translation>
+    </message>
+    <message>
         <source>Proximity</source>
         <translation>Närhet</translation>
     </message>
