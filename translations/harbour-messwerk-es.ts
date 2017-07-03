@@ -6,22 +6,22 @@
     <message>
         <location filename="../qml/pages/AccelPage.qml" line="76"/>
         <source>Stop</source>
-        <translation type="unfinished"></translation>
+        <translation>Parar</translation>
     </message>
     <message>
         <location filename="../qml/pages/AccelPage.qml" line="76"/>
         <source>Start</source>
-        <translation type="unfinished"></translation>
+        <translation>Empezar</translation>
     </message>
     <message>
         <location filename="../qml/pages/AccelPage.qml" line="76"/>
         <source> logging</source>
-        <translation type="unfinished"></translation>
+        <translation>Iniciar sesión</translation>
     </message>
     <message>
         <location filename="../qml/pages/AccelPage.qml" line="105"/>
         <source>Accelerometer</source>
-        <translation type="unfinished"></translation>
+        <translation>Acelerómetro</translation>
     </message>
 </context>
 <context>
@@ -29,7 +29,7 @@
     <message>
         <location filename="../qml/cover/CoverPage.qml" line="49"/>
         <source>Messwerk</source>
-        <translation type="unfinished"></translation>
+        <translation>Messwerk</translation>
     </message>
 </context>
 <context>
@@ -37,52 +37,52 @@
     <message>
         <location filename="../qml/pages/FirstPage.qml" line="15"/>
         <source>Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Ajustes</translation>
     </message>
     <message>
         <location filename="../qml/pages/FirstPage.qml" line="19"/>
         <source>Info</source>
-        <translation type="unfinished"></translation>
+        <translation>Acerca de</translation>
     </message>
     <message>
         <location filename="../qml/pages/FirstPage.qml" line="37"/>
         <source>Select Sensor</source>
-        <translation type="unfinished"></translation>
+        <translation>Elegir sensor</translation>
     </message>
     <message>
         <location filename="../qml/pages/FirstPage.qml" line="41"/>
         <source>Position</source>
-        <translation type="unfinished"></translation>
+        <translation>Posición</translation>
     </message>
     <message>
         <location filename="../qml/pages/FirstPage.qml" line="47"/>
         <source>GNSS Satellites</source>
-        <translation type="unfinished"></translation>
+        <translation>GNSS satélites</translation>
     </message>
     <message>
         <location filename="../qml/pages/FirstPage.qml" line="53"/>
         <source>Rotation</source>
-        <translation type="unfinished"></translation>
+        <translation>Rotación</translation>
     </message>
     <message>
         <location filename="../qml/pages/FirstPage.qml" line="59"/>
         <source>Accelerometer</source>
-        <translation type="unfinished"></translation>
+        <translation>Acelerómetro</translation>
     </message>
     <message>
         <location filename="../qml/pages/FirstPage.qml" line="65"/>
         <source>Gyroscope</source>
-        <translation type="unfinished"></translation>
+        <translation>Giroscopio</translation>
     </message>
     <message>
         <location filename="../qml/pages/FirstPage.qml" line="71"/>
         <source>Magnetometer</source>
-        <translation type="unfinished"></translation>
+        <translation>Magnetómetro</translation>
     </message>
     <message>
         <location filename="../qml/pages/FirstPage.qml" line="77"/>
         <source>Light &amp; Proximity</source>
-        <translation type="unfinished"></translation>
+        <translation>Luz &amp; Proximidad</translation>
     </message>
 </context>
 <context>
@@ -90,22 +90,22 @@
     <message>
         <location filename="../qml/pages/GyroPage.qml" line="77"/>
         <source>Stop</source>
-        <translation type="unfinished"></translation>
+        <translation>Parar</translation>
     </message>
     <message>
         <location filename="../qml/pages/GyroPage.qml" line="77"/>
         <source>Start</source>
-        <translation type="unfinished"></translation>
+        <translation>Empezar</translation>
     </message>
     <message>
         <location filename="../qml/pages/GyroPage.qml" line="77"/>
         <source> logging</source>
-        <translation type="unfinished"></translation>
+        <translation>iniciar sesión</translation>
     </message>
     <message>
         <location filename="../qml/pages/GyroPage.qml" line="106"/>
         <source>Gyroscope</source>
-        <translation type="unfinished"></translation>
+        <translation>Giroscopio</translation>
     </message>
 </context>
 <context>
@@ -113,47 +113,47 @@
     <message>
         <location filename="../qml/pages/InfoPage.qml" line="19"/>
         <source>Info</source>
-        <translation type="unfinished"></translation>
+        <translation>Acerca de</translation>
     </message>
     <message>
         <location filename="../qml/pages/InfoPage.qml" line="23"/>
         <source>Created by bytewerk™ Software Inc.</source>
-        <translation type="unfinished"></translation>
+        <translation>Creado por bytewerk ™ Software Inc.</translation>
     </message>
     <message>
         <location filename="../qml/pages/InfoPage.qml" line="28"/>
         <source>Send beer, pizza and Club Mate to</source>
-        <translation type="unfinished"></translation>
+        <translation>Enviar cerveza,pizza y compañero de club para</translation>
     </message>
     <message>
         <location filename="../qml/pages/InfoPage.qml" line="37"/>
         <source>source code</source>
-        <translation type="unfinished"></translation>
+        <translation>Código fuente</translation>
     </message>
     <message>
         <location filename="../qml/pages/InfoPage.qml" line="41"/>
         <source>Credits</source>
-        <translation type="unfinished"></translation>
+        <translation>Créditos</translation>
     </message>
     <message>
         <location filename="../qml/pages/InfoPage.qml" line="45"/>
         <source>Coding: </source>
-        <translation type="unfinished"></translation>
+        <translation>Codificación:</translation>
     </message>
     <message>
         <location filename="../qml/pages/InfoPage.qml" line="49"/>
         <source>Quality assurance: </source>
-        <translation type="unfinished"></translation>
+        <translation>Seguro de calidad:</translation>
     </message>
     <message>
         <location filename="../qml/pages/InfoPage.qml" line="53"/>
         <source>Art &amp; Design: </source>
-        <translation type="unfinished"></translation>
+        <translation>Arte &amp; Diseño:</translation>
     </message>
     <message>
         <location filename="../qml/pages/InfoPage.qml" line="58"/>
         <source>Translations: </source>
-        <translation type="unfinished"></translation>
+        <translation>Traductores</translation>
     </message>
 </context>
 <context>
@@ -161,45 +161,45 @@
     <message>
         <location filename="../qml/pages/LightPage.qml" line="49"/>
         <source>Light sensor: </source>
-        <translation type="unfinished"></translation>
+        <translation>Sensor de luz</translation>
     </message>
     <message>
         <location filename="../qml/pages/LightPage.qml" line="49"/>
         <location filename="../qml/pages/LightPage.qml" line="61"/>
         <source>Stop</source>
-        <translation type="unfinished"></translation>
+        <translation>Parar</translation>
     </message>
     <message>
         <location filename="../qml/pages/LightPage.qml" line="49"/>
         <location filename="../qml/pages/LightPage.qml" line="61"/>
         <source>Start</source>
-        <translation type="unfinished"></translation>
+        <translation>Empezar</translation>
     </message>
     <message>
         <location filename="../qml/pages/LightPage.qml" line="49"/>
         <location filename="../qml/pages/LightPage.qml" line="61"/>
         <source> logging</source>
-        <translation type="unfinished"></translation>
+        <translation>Iniciar sesión</translation>
     </message>
     <message>
         <location filename="../qml/pages/LightPage.qml" line="61"/>
         <source>Proximity sensor: </source>
-        <translation type="unfinished"></translation>
+        <translation>Sensor de proximidad:</translation>
     </message>
     <message>
         <location filename="../qml/pages/LightPage.qml" line="75"/>
         <source>Light &amp; Proximity</source>
-        <translation type="unfinished"></translation>
+        <translation>Luz &amp; Proximidad</translation>
     </message>
     <message>
         <location filename="../qml/pages/LightPage.qml" line="78"/>
         <source>Brightness</source>
-        <translation type="unfinished"></translation>
+        <translation>Brillo</translation>
     </message>
     <message>
         <location filename="../qml/pages/LightPage.qml" line="100"/>
         <source>Proximity</source>
-        <translation type="unfinished"></translation>
+        <translation>Proximidad</translation>
     </message>
     <message>
         <location filename="../qml/pages/LightPage.qml" line="115"/>
