@@ -305,22 +305,22 @@
     <message>
         <location filename="../qml/pages/PositionPage.qml" line="173"/>
         <source>Horizontal: </source>
-        <translation type="unfinished"></translation>
+        <translation>Horizontal:</translation>
     </message>
     <message>
         <location filename="../qml/pages/PositionPage.qml" line="180"/>
         <source>Vertical: </source>
-        <translation type="unfinished"></translation>
+        <translation>Vertical:</translation>
     </message>
     <message>
         <location filename="../qml/pages/PositionPage.qml" line="184"/>
         <source>Maidenhead Locator</source>
-        <translation type="unfinished"></translation>
+        <translation>Localizador Maidenhead</translation>
     </message>
     <message>
         <location filename="../qml/pages/PositionPage.qml" line="195"/>
         <source>Grid: </source>
-        <translation type="unfinished"></translation>
+        <translation>Cuadrícula:</translation>
     </message>
 </context>
 <context>
@@ -328,22 +328,22 @@
     <message>
         <location filename="../qml/pages/RotationPage.qml" line="76"/>
         <source>Stop</source>
-        <translation type="unfinished"></translation>
+        <translation>Parar</translation>
     </message>
     <message>
         <location filename="../qml/pages/RotationPage.qml" line="76"/>
         <source>Start</source>
-        <translation type="unfinished"></translation>
+        <translation>Empezar</translation>
     </message>
     <message>
         <location filename="../qml/pages/RotationPage.qml" line="76"/>
         <source> logging</source>
-        <translation type="unfinished"></translation>
+        <translation>iniciar sesión</translation>
     </message>
     <message>
         <location filename="../qml/pages/RotationPage.qml" line="105"/>
         <source>Rotation</source>
-        <translation type="unfinished"></translation>
+        <translation>Rotación</translation>
     </message>
 </context>
 <context>
@@ -351,22 +351,22 @@
     <message>
         <location filename="../qml/pages/SatellitePage.qml" line="50"/>
         <source>Stop</source>
-        <translation type="unfinished"></translation>
+        <translation>Parar</translation>
     </message>
     <message>
         <location filename="../qml/pages/SatellitePage.qml" line="50"/>
         <source>Start</source>
-        <translation type="unfinished"></translation>
+        <translation>Empezar</translation>
     </message>
     <message>
         <location filename="../qml/pages/SatellitePage.qml" line="50"/>
         <source> logging</source>
-        <translation type="unfinished"></translation>
+        <translation>iniciar sesión</translation>
     </message>
     <message>
         <location filename="../qml/pages/SatellitePage.qml" line="65"/>
         <source>Position</source>
-        <translation type="unfinished"></translation>
+        <translation>Posición</translation>
     </message>
 </context>
 <context>
@@ -374,27 +374,27 @@
     <message>
         <location filename="../qml/pages/SettingsDialog.qml" line="21"/>
         <source>Save</source>
-        <translation type="unfinished"></translation>
+        <translation>Guardar</translation>
     </message>
     <message>
         <location filename="../qml/pages/SettingsDialog.qml" line="25"/>
         <source>Logging</source>
-        <translation type="unfinished"></translation>
+        <translation>iniciar sesión</translation>
     </message>
     <message>
         <location filename="../qml/pages/SettingsDialog.qml" line="33"/>
         <source>Path for sensor logs</source>
-        <translation type="unfinished"></translation>
+        <translation>Ruta para registros de sensores</translation>
     </message>
     <message>
         <location filename="../qml/pages/SettingsDialog.qml" line="38"/>
         <source>Prevent display blanking</source>
-        <translation type="unfinished"></translation>
+        <translation>Evitar borrado de la pantalla</translation>
     </message>
     <message>
         <location filename="../qml/pages/SettingsDialog.qml" line="39"/>
         <source>Prevents display blanking on sensor plotting pages</source>
-        <translation type="unfinished"></translation>
+        <translation>Evitar borrado de la pantalla en páginas de trazado del sensor</translation>
     </message>
 </context>
 </TS>
