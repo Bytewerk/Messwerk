@@ -204,7 +204,7 @@
     <message>
         <location filename="../qml/pages/LightPage.qml" line="115"/>
         <source>Proximity detected</source>
-        <translation type="unfinished"></translation>
+        <translation>Proximidad detectada</translation>
     </message>
 </context>
 <context>
@@ -212,22 +212,22 @@
     <message>
         <location filename="../qml/pages/MagnetPage.qml" line="68"/>
         <source>Stop</source>
-        <translation type="unfinished"></translation>
+        <translation>Parar</translation>
     </message>
     <message>
         <location filename="../qml/pages/MagnetPage.qml" line="68"/>
         <source>Start</source>
-        <translation type="unfinished"></translation>
+        <translation>Empezar</translation>
     </message>
     <message>
         <location filename="../qml/pages/MagnetPage.qml" line="68"/>
         <source> logging</source>
-        <translation type="unfinished"></translation>
+        <translation>iniciar sesión</translation>
     </message>
     <message>
         <location filename="../qml/pages/MagnetPage.qml" line="82"/>
         <source>Magnetometer</source>
-        <translation type="unfinished"></translation>
+        <translation>Magnetómetro</translation>
     </message>
 </context>
 <context>
@@ -235,72 +235,72 @@
     <message>
         <location filename="../qml/pages/PositionPage.qml" line="97"/>
         <source>Coordinate format: </source>
-        <translation type="unfinished"></translation>
+        <translation>Formato de coordenadas:</translation>
     </message>
     <message>
         <location filename="../qml/pages/PositionPage.qml" line="97"/>
         <source>deg./min./sec.</source>
-        <translation type="unfinished"></translation>
+        <translation>deg./min./seg.</translation>
     </message>
     <message>
         <location filename="../qml/pages/PositionPage.qml" line="97"/>
         <source>decimal</source>
-        <translation type="unfinished"></translation>
+        <translation>decimal</translation>
     </message>
     <message>
         <location filename="../qml/pages/PositionPage.qml" line="109"/>
         <source>Position: </source>
-        <translation type="unfinished"></translation>
+        <translation>Posición:</translation>
     </message>
     <message>
         <location filename="../qml/pages/PositionPage.qml" line="109"/>
         <source>Stop</source>
-        <translation type="unfinished"></translation>
+        <translation>Parar</translation>
     </message>
     <message>
         <location filename="../qml/pages/PositionPage.qml" line="109"/>
         <source>Start</source>
-        <translation type="unfinished"></translation>
+        <translation>Empezar</translation>
     </message>
     <message>
         <location filename="../qml/pages/PositionPage.qml" line="109"/>
         <source> logging</source>
-        <translation type="unfinished"></translation>
+        <translation>iniciar sesión</translation>
     </message>
     <message>
         <location filename="../qml/pages/PositionPage.qml" line="123"/>
         <source>Position</source>
-        <translation type="unfinished"></translation>
+        <translation>Posición</translation>
     </message>
     <message>
         <location filename="../qml/pages/PositionPage.qml" line="126"/>
         <source>WGS84 Coordinates</source>
-        <translation type="unfinished"></translation>
+        <translation>WGS84 Coordenadas</translation>
     </message>
     <message>
         <location filename="../qml/pages/PositionPage.qml" line="137"/>
         <source>Fix: </source>
-        <translation type="unfinished"></translation>
+        <translation>Arreglar:</translation>
     </message>
     <message>
         <location filename="../qml/pages/PositionPage.qml" line="144"/>
         <source>Latitude: </source>
-        <translation type="unfinished"></translation>
+        <translation>Latitud:</translation>
     </message>
     <message>
         <location filename="../qml/pages/PositionPage.qml" line="151"/>
         <source>Longitude: </source>
-        <translation type="unfinished"></translation>
+        <translation>Longitud:</translation>
     </message>
     <message>
         <location filename="../qml/pages/PositionPage.qml" line="158"/>
         <source>Altitude: </source>
-        <translation type="unfinished"></translation>
+        <translation>Altitud:</translation>
     </message>
     <message>
         <location filename="../qml/pages/PositionPage.qml" line="162"/>
         <source>Accuracy</source>
-        <translation type="unfinished"></translation>
+        <translation>Exactitud</translation>
     </message>
     <message>
         <location filename="../qml/pages/PositionPage.qml" line="173"/>
