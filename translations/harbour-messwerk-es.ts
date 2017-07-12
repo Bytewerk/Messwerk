@@ -143,7 +143,7 @@
     <message>
         <location filename="../qml/pages/InfoPage.qml" line="49"/>
         <source>Quality assurance: </source>
-        <translation>Seguro de calidad:</translation>
+        <translation>Calidad de garantía:</translation>
     </message>
     <message>
         <location filename="../qml/pages/InfoPage.qml" line="53"/>
@@ -240,7 +240,7 @@
     <message>
         <location filename="../qml/pages/PositionPage.qml" line="97"/>
         <source>deg./min./sec.</source>
-        <translation>deg./min./seg.</translation>
+        <translation>gra./min./seg.</translation>
     </message>
     <message>
         <location filename="../qml/pages/PositionPage.qml" line="97"/>
