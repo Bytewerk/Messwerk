@@ -86,7 +86,7 @@ Page {
                     font.pixelSize: Theme.fontSizeLarge
                     anchors.right: parent.right
                     anchors.rightMargin: Theme.paddingLarge
-                    text: 'Brightness: ' + page.formatNumber(lightsensor.brightness)
+                    text: qsTr('Brightness: ') + page.formatNumber(lightsensor.brightness)
                 }
                 PlotWidget {
                     id: bplot
