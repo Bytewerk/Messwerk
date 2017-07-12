@@ -109,7 +109,7 @@
     </message>
     <message>
         <source>Credits</source>
-        <translation type="unfinished"></translation>
+        <translation>Mitwirkende</translation>
     </message>
     <message>
         <source>Coding: </source>
@@ -165,6 +165,10 @@
     <message>
         <source>Proximity sensor: </source>
         <translation>Näherungssensor: </translation>
+    </message>
+    <message>
+        <source>Brightness: </source>
+        <translation>Helligkeit: </translation>
     </message>
 </context>
 <context>

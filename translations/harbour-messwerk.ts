@@ -197,6 +197,11 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../qml/pages/LightPage.qml" line="89"/>
+        <source>Brightness: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../qml/pages/LightPage.qml" line="100"/>
         <source>Proximity</source>
         <translation type="unfinished"></translation>

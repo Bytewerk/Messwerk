@@ -59,7 +59,8 @@ OTHER_FILES += qml/Messwerk.qml \
 # following CONFIG line
 CONFIG += sailfishapp_i18n
 TRANSLATIONS += translations/harbour-messwerk-de.ts \
-    translations/harbour-messwerk-pl.ts
+    translations/harbour-messwerk-pl.ts \
+    translations/harbour-messwerk-sv.ts
 
 HEADERS += \
     src/accelerometer.h \

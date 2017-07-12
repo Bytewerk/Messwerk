@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.0" language="pl_PL" sourcelanguage="pl_PL">
+<TS version="2.1" language="pl_PL" sourcelanguage="pl_PL">
 <context>
     <name>AccelPage</name>
     <message>
@@ -196,6 +196,11 @@
         <location filename="../qml/pages/LightPage.qml" line="78"/>
         <source>Brightness</source>
         <translation>Jasność</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/LightPage.qml" line="89"/>
+        <source>Brightness: </source>
+        <translation>Jasność: </translation>
     </message>
     <message>
         <location filename="../qml/pages/LightPage.qml" line="100"/>
