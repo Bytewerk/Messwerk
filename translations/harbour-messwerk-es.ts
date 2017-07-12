@@ -123,7 +123,7 @@
     <message>
         <location filename="../qml/pages/InfoPage.qml" line="28"/>
         <source>Send beer, pizza and Club Mate to</source>
-        <translation>Enviar cerveza,pizza y compañero de club para</translation>
+        <translation>Enviar cerveza,pizza y club-mate para</translation>
     </message>
     <message>
         <location filename="../qml/pages/InfoPage.qml" line="37"/>
